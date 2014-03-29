@@ -193,6 +193,9 @@ $RECYCLE.BIN/
 ## Python
 #############
 
+# PsychoPy iohub
+.iohpid
+
 *.py[co]
 
 # Packages

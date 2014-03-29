@@ -1,14 +1,23 @@
-from copy            import copy
 from numpy           import sin, deg2rad
-from psychopy        import visual, event
+from psychopy        import visual, event, core
+from psychopy.iohub  import launchHubServer, EventConstants
 from matplotlib.path import Path as mpl_Path
 
-size = [1300, 200]
+io = launchHubServer()
+
+display  = io.devices.display
+keyboard = io.devices.keyboard
+mouse    = io.devices.mouse
+
+size = map(lambda x: int(x*0.8), display.getPixelResolution())
 
 viewScale = map(lambda x: float(x)/min(size), size)
 viewScale.reverse()
 
-win = visual.Window(size, viewScale=viewScale)
+win = visual.Window( size
+                   , units='pix'
+                   , fullscr=False
+                   , screen=1)
 
 imageFiles = [ r'../img/match_1.png'
              , r'../img/match_0.png'
@@ -17,8 +26,19 @@ imageFiles = [ r'../img/match_1.png'
 matches = []
 
 
-default = { 'scale' : 0.1
+default = { 'scale' : 75
           , 'image' : imageFiles[0] }
+
+
+def spawn_message(text, position):
+    return visual.TextStim( win
+                          , pos=position
+                          , alignHoriz='center'
+                          , alignVert ='center'
+                          , height=40
+                          , text=text
+                          , autoLog=False
+                          , wrapWidth=size[0]*.9)
 
 
 def normalize(angle):
@@ -52,16 +72,22 @@ def spawn_match (style, position, angle):
                             , texRes      = 128
                             , interpolate = False)
     matches.append(image)
-    image.autoDraw = True
-
 
 def spawn_sign(style, sign, position):
     scale = style['scale']
-    if sign == 'i':
-        spawn_match( style
-                  , [ position[0]
-                    , position[1]]
-                  , 0)
+
+    ones  = { 'i' : [0]
+            , '2' : [-1, 1]
+            , '3' : [-1, 0, 1]}
+
+    if len(sign) == 1 and \
+       sign in 'i23':
+        delta = scale / 4
+        for x in ones[sign]:
+            spawn_match( style
+                       , [ position[0] + x * delta
+                         , position[1]]
+                       , 0)
 
     if sign == 'v' or sign == 'm':
         delta = scale / 8
@@ -171,10 +197,11 @@ def spawn_expression(style, letters, position, width):
 
 
 def translate(expression):
-    parts   = expression.split(' ')
+    parts = expression.split(' ')
     for x in range(len(parts)):
         try:
-            parts[x] = int_to_roman(int(parts[x]))
+            if parts[x] != '2' and parts[x] != '3':
+                parts[x] = int_to_roman(int(parts[x]))
         except ValueError:
             pass
     return ''.join(parts)
@@ -292,7 +319,7 @@ def remove(condition, array):
 
 def recognize(list):
     result   = ""
-    position = [None, None]
+    position = [-size[0]*9000, -size[1]*9000]
     length   = len(list)
     if 0 < length < 5:
         epsilon = min(list[0].size)
@@ -369,26 +396,69 @@ def recognize(list):
 
     return (result, position)
 
+io.clearEvents('all')
+
+demo_timeout_start = core.getTime()
+
 k = ['i']
 
-while k[0] not in ['escape', 'esc']:
+romanMessage = spawn_message('', (0.0,-(size[1]/4)))
+solveMessage = spawn_message('', (0.0,-(size[1]/3)))
+
+spawn_expression( default
+                    , translate('1666 + 1 - 2 = 3')
+                    , [0, 0]
+                    , size[0] * 0.5)
+
+
+def read_matches(array):
     decision = []
-    for s in decompose(matches):
+    for s in decompose(array):
         try:
             decision.append(recognize(list(s)))
         except Exception as e:
             print(e.message)
+    recognized = ''.join(map(lambda x: x[0], sorted(decision, key=lambda x: x[1][0])))
+    normalized = []
+    for part in recognized.split(' '):
+        try:
+            normalized.append(str(roman_to_int(part)))
+        except ValueError:
+            normalized.append(part)
+    normalized = ' '.join(normalized)
+    normalized += ' (%i = %i)' % tuple(map(eval, normalized.split('=')))
+    romanMessage.setText(recognized)
 
-    print(''.join(map(lambda x: x[0], sorted(decision, key=lambda x: x[1][0]))))
+    solveMessage.setText(normalized)
 
-    while len(matches) > 0:
-        matches[0].autoDraw = False
-        del matches[0]
 
-    spawn_expression( default
-                    , translate('1666 + i - 2 = V')
-                    , [0, 0]
-                    , 1)
+def draw(objects):
+    for obj in objects:
+        obj.draw()
+
     win.flip()
 
-    k = event.waitKeys()
+while True:
+    position, posDelta = mouse.getPositionAndDelta()
+    mouse_dX, mouse_dY = posDelta
+
+    left_button, middle_button, right_button = mouse.getCurrentButtonStates()
+
+    read_matches(matches)
+
+    draw(matches + [romanMessage, solveMessage])
+
+    kb_events    = keyboard.getEvents()
+    mouse_events = mouse.getEvents()
+    disp_events  = display.getEvents()
+
+    io.clearEvents()
+
+    for evt in disp_events:
+        print(evt)
+
+    for evt in kb_events:
+        if evt.type == EventConstants.KEYBOARD_PRESS:
+            if evt.key_id == 27: # Escape
+                io.quit()
+                core.quit()
