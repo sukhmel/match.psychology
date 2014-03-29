@@ -1,4 +1,5 @@
-from psychopy import visual, event
+from psychopy        import visual, event
+from matplotlib.path import Path as mpl_Path
 
 win = visual.Window([600, 600])
 
@@ -13,7 +14,6 @@ def spawn_match (style, position, angle):
     image = visual.ImageStim( win         = win
                             , name        ='match_%i' % len(matches)
                             , image       = style['image']
-                            , mask        = None
                             , ori         = angle
                             , pos         = position
                             , size        = [0.1 * style['scale'], style['scale']]
@@ -23,8 +23,7 @@ def spawn_match (style, position, angle):
                             , flipHoriz   = False
                             , flipVert    = False
                             , texRes      = 128
-                            , interpolate = False
-                            , depth       = 0.0)
+                            , interpolate = False)
     matches.append(image)
     image.autoDraw = True
 
@@ -199,9 +198,15 @@ def roman_to_int(input):
         raise ValueError, 'input is not a valid roman numeral: %s' % input
 
 
+def overlaps(left, right):
+    poly_left  = mpl_Path( left, closed=True)
+    poly_right = mpl_Path(right, closed=True)
+    return poly_left.intersects_path(poly_right, filled=True)
+
 def decompose():
     result = []
     for match in matches:
+        left = match.verticesPix
         local = {match}
         for i in range(len(result) - 1, -1, -1):
             if match in result[i]:
@@ -210,7 +215,8 @@ def decompose():
 
         for test in matches:
             if test not in local:
-                if match.overlaps(test):
+                right = test.verticesPix
+                if overlaps(left, right):
                     local.add(test)
 
         result.append(local)
