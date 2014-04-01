@@ -2,6 +2,10 @@
 number: animated_slower
 operator: animated_faster
 
+# setup: faster_slower
+number: random_slow_blink
+operator: random_fast_blink
+
 # setup: shrink_grow
 number: pulse_grow
 operator: pulse_shrink

@@ -8,6 +8,14 @@ anim[]: 2, .1, .1, .1, .1, .1, .1, .1
 image: ../img/blink_1/%i.png
 begin: 1
 
+# style: random_fast_blink
+anim[]: 2, .05, .05, .05, .05, .05, .05, .05
+image: ../img/blink_1/%i.png
+
+# style: random_slow_blink
+anim[]: 2, .1, .1, .1, .1, .1, .1, .1
+image: ../img/blink_1/%i.png
+
 # style: pulse_grow
 pulse_name: grow
 

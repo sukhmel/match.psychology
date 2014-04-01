@@ -746,7 +746,7 @@ if __name__ == '__main__':
 
     for g in groups.values():
         temp = sample(g, min(1, len(setups)))
-        sets = sample(setups.values(), len(temp))
+        sets = sample(setups.values(), min(len(temp), 3))
         tasks.append(zip(temp, sets))
 
     success = True
