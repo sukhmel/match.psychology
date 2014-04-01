@@ -18,3 +18,43 @@ kind: number
 solution: L + L = L -> [C - L = L, L + I = LI]
 expression: L + L = L
 kind: op_to_num
+
+# template task
+solution:
+expression:
+kind: 
+
+# task
+solution: I + I = I -> I = I = I
+expression: 1 + 1 = 1
+kind:  operator
+
+# task
+solution: II + II = II -> [I + II = III, II = II = II]
+expression: 2 + 2 = 2
+kind: number
+
+# task
+solution: II - II = III -> II = II = II
+expression: 2 - 2 = 3
+kind: num_to_op
+
+# task
+solution: X + V = IV -> [IX - V = IV, X - VI = IV]
+expression: 10 + 5 = 4
+kind: op_to_num
+
+# task
+solution: XIV - V = XX -> XV + V = XX
+expression: 14 - 5 = 20
+kind: num_to_op
+
+# task
+solution: IX - IX = V -> IX - IV = V
+expression: 9 - 9 = 5
+kind: number
+
+# task
+solution: X = VIII - II -> X - VIII = II
+expression: 10 = 8 - 2
+kind: operator

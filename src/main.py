@@ -592,12 +592,13 @@ def load_data(filename, kind, default):
                     into = copy(default)
                     lines = data.split('\n')
                     for line in lines[1:]:
-                        name, content = line.split(':')
-                        if '[]' in name:
-                            content = map(float, content.split(','))
-                        else:
-                            content = content.strip()
-                        into[name.strip('[]')] = content
+                        if line != '':
+                            name, content = line.split(':')
+                            if '[]' in name:
+                                content = map(float, content.split(','))
+                            else:
+                                content = content.strip()
+                            into[name.strip('[]')] = content
 
                     if ':' in lines[0]:
                         result[lines[0].split(':')[1].strip()] = into

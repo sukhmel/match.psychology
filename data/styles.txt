@@ -4,7 +4,7 @@ image: ../img/blink_1/%i.png
 begin: 2
 
 # style: animated_slower
-anim[]: 2, .15, .15, .15, .15, .15, .15, .15
+anim[]: 2, .1, .1, .1, .1, .1, .1, .1
 image: ../img/blink_1/%i.png
 begin: 1
 
