@@ -1,0 +1,7 @@
+# setup: faster_slower
+number: animated_slower
+operator: animated_faster
+
+# setup: shrink_grow
+number: pulse_grow
+operator: pulse_shrink

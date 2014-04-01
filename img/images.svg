@@ -15,11 +15,22 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.48.4 r9939"
-   sodipodi:docname="Новый документ 1">
+   sodipodi:docname="images.svg">
   <title
      id="title3852">source images</title>
   <defs
      id="defs4">
+    <linearGradient
+       id="linearGradient7820">
+      <stop
+         style="stop-color:#000000;stop-opacity:0.39215687;"
+         offset="0"
+         id="stop7822" />
+      <stop
+         style="stop-color:#b5970a;stop-opacity:0;"
+         offset="1"
+         id="stop7824" />
+    </linearGradient>
     <linearGradient
        id="linearGradient3836">
       <stop
@@ -48,10 +59,598 @@
        y2="103.20008"
        gradientUnits="userSpaceOnUse" />
     <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient3836"
-       id="linearGradient3850"
+       y2="103.20008"
+       x2="244.90361"
+       y1="103.20008"
+       x1="181.29645"
        gradientUnits="userSpaceOnUse"
+       id="linearGradient3850-4"
+       xlink:href="#linearGradient3836-8"
+       inkscape:collect="always" />
+    <linearGradient
+       id="linearGradient3836-8">
+      <stop
+         id="stop3838-8"
+         offset="0"
+         style="stop-color:#7e3e0e;stop-opacity:1;" />
+      <stop
+         id="stop3840-2"
+         offset="1"
+         style="stop-color:#da6c18;stop-opacity:1;" />
+    </linearGradient>
+    <linearGradient
+       y2="103.20008"
+       x2="244.90361"
+       y1="103.20008"
+       x1="181.29645"
+       gradientUnits="userSpaceOnUse"
+       id="linearGradient3850-1"
+       xlink:href="#linearGradient3836-6"
+       inkscape:collect="always" />
+    <linearGradient
+       id="linearGradient3836-6">
+      <stop
+         id="stop3838-8-4"
+         offset="0"
+         style="stop-color:#7e3e0e;stop-opacity:1;" />
+      <stop
+         id="stop3840-5"
+         offset="1"
+         style="stop-color:#da6c18;stop-opacity:1;" />
+    </linearGradient>
+    <linearGradient
+       y2="103.20008"
+       x2="244.90361"
+       y1="103.20008"
+       x1="181.29645"
+       gradientUnits="userSpaceOnUse"
+       id="linearGradient4227"
+       xlink:href="#linearGradient3836-6"
+       inkscape:collect="always" />
+    <linearGradient
+       id="linearGradient4229">
+      <stop
+         id="stop4231"
+         offset="0"
+         style="stop-color:#7e3e0e;stop-opacity:1;" />
+      <stop
+         id="stop4233"
+         offset="1"
+         style="stop-color:#da6c18;stop-opacity:1;" />
+    </linearGradient>
+    <linearGradient
+       y2="103.20008"
+       x2="244.90361"
+       y1="103.20008"
+       x1="181.29645"
+       gradientUnits="userSpaceOnUse"
+       id="linearGradient4235"
+       xlink:href="#linearGradient3836-6"
+       inkscape:collect="always" />
+    <linearGradient
+       id="linearGradient4237">
+      <stop
+         id="stop4239"
+         offset="0"
+         style="stop-color:#7e3e0e;stop-opacity:1;" />
+      <stop
+         id="stop4241"
+         offset="1"
+         style="stop-color:#da6c18;stop-opacity:1;" />
+    </linearGradient>
+    <linearGradient
+       y2="103.20008"
+       x2="244.90361"
+       y1="103.20008"
+       x1="181.29645"
+       gradientUnits="userSpaceOnUse"
+       id="linearGradient4243"
+       xlink:href="#linearGradient3836-6"
+       inkscape:collect="always" />
+    <linearGradient
+       id="linearGradient4245">
+      <stop
+         id="stop4247"
+         offset="0"
+         style="stop-color:#7e3e0e;stop-opacity:1;" />
+      <stop
+         id="stop4249"
+         offset="1"
+         style="stop-color:#da6c18;stop-opacity:1;" />
+    </linearGradient>
+    <linearGradient
+       y2="103.20008"
+       x2="244.90361"
+       y1="103.20008"
+       x1="181.29645"
+       gradientUnits="userSpaceOnUse"
+       id="linearGradient4251"
+       xlink:href="#linearGradient3836-6"
+       inkscape:collect="always" />
+    <linearGradient
+       id="linearGradient4253">
+      <stop
+         id="stop4255"
+         offset="0"
+         style="stop-color:#7e3e0e;stop-opacity:1;" />
+      <stop
+         id="stop4257"
+         offset="1"
+         style="stop-color:#da6c18;stop-opacity:1;" />
+    </linearGradient>
+    <linearGradient
+       y2="103.20008"
+       x2="244.90361"
+       y1="103.20008"
+       x1="181.29645"
+       gradientUnits="userSpaceOnUse"
+       id="linearGradient4259"
+       xlink:href="#linearGradient3836-6"
+       inkscape:collect="always" />
+    <linearGradient
+       id="linearGradient4261">
+      <stop
+         id="stop4263"
+         offset="0"
+         style="stop-color:#7e3e0e;stop-opacity:1;" />
+      <stop
+         id="stop4265"
+         offset="1"
+         style="stop-color:#da6c18;stop-opacity:1;" />
+    </linearGradient>
+    <linearGradient
+       y2="103.20008"
+       x2="244.90361"
+       y1="103.20008"
+       x1="181.29645"
+       gradientUnits="userSpaceOnUse"
+       id="linearGradient4267"
+       xlink:href="#linearGradient3836-6"
+       inkscape:collect="always" />
+    <linearGradient
+       id="linearGradient4269">
+      <stop
+         id="stop4271"
+         offset="0"
+         style="stop-color:#7e3e0e;stop-opacity:1;" />
+      <stop
+         id="stop4273"
+         offset="1"
+         style="stop-color:#da6c18;stop-opacity:1;" />
+    </linearGradient>
+    <linearGradient
+       y2="103.20008"
+       x2="244.90361"
+       y1="103.20008"
+       x1="181.29645"
+       gradientUnits="userSpaceOnUse"
+       id="linearGradient4275"
+       xlink:href="#linearGradient3836-6"
+       inkscape:collect="always" />
+    <linearGradient
+       id="linearGradient4277">
+      <stop
+         id="stop4279"
+         offset="0"
+         style="stop-color:#7e3e0e;stop-opacity:1;" />
+      <stop
+         id="stop4281"
+         offset="1"
+         style="stop-color:#da6c18;stop-opacity:1;" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3836-6"
+       id="linearGradient4432"
+       gradientUnits="userSpaceOnUse"
+       x1="181.29645"
+       y1="103.20008"
+       x2="244.90361"
+       y2="103.20008" />
+    <linearGradient
+       gradientTransform="translate(-126.01266,479.73552)"
+       inkscape:collect="always"
+       xlink:href="#linearGradient3836-2"
+       id="linearGradient3850-8"
+       gradientUnits="userSpaceOnUse"
+       x1="181.29645"
+       y1="103.20008"
+       x2="244.90361"
+       y2="103.20008" />
+    <linearGradient
+       id="linearGradient3836-2">
+      <stop
+         style="stop-color:#7e3e0e;stop-opacity:1;"
+         offset="0"
+         id="stop3838-6" />
+      <stop
+         style="stop-color:#da6c18;stop-opacity:1;"
+         offset="1"
+         id="stop3840-6" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient7820-1"
+       id="linearGradient7830-0"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.0500276,0,0,1.0500276,290.40166,58.018219)"
+       x1="21.986607"
+       y1="680.93365"
+       x2="61.1875"
+       y2="125.65401" />
+    <linearGradient
+       id="linearGradient7820-1">
+      <stop
+         style="stop-color:#000000;stop-opacity:0.39215687;"
+         offset="0"
+         id="stop7822-2" />
+      <stop
+         style="stop-color:#b5970a;stop-opacity:0;"
+         offset="1"
+         id="stop7824-5" />
+    </linearGradient>
+    <linearGradient
+       y2="125.65401"
+       x2="61.1875"
+       y1="680.93365"
+       x1="21.986607"
+       gradientTransform="matrix(1.0512215,0,0,0.94635069,131.96842,34.2205)"
+       gradientUnits="userSpaceOnUse"
+       id="linearGradient7851"
+       xlink:href="#linearGradient7820-1"
+       inkscape:collect="always" />
+    <linearGradient
+       y2="103.20008"
+       x2="244.90361"
+       y1="103.20008"
+       x1="181.29645"
+       gradientUnits="userSpaceOnUse"
+       id="linearGradient3850-4-0"
+       xlink:href="#linearGradient3836-8-9"
+       inkscape:collect="always" />
+    <linearGradient
+       id="linearGradient3836-8-9">
+      <stop
+         id="stop3838-8-47"
+         offset="0"
+         style="stop-color:#7e3e0e;stop-opacity:1;" />
+      <stop
+         id="stop3840-2-8"
+         offset="1"
+         style="stop-color:#da6c18;stop-opacity:1;" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient3836-84">
+      <stop
+         style="stop-color:#7e3e0e;stop-opacity:1;"
+         offset="0"
+         id="stop3838-1" />
+      <stop
+         style="stop-color:#da6c18;stop-opacity:1;"
+         offset="1"
+         id="stop3840-4" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient7820-9">
+      <stop
+         style="stop-color:#000000;stop-opacity:0.39215687;"
+         offset="0"
+         id="stop7822-8" />
+      <stop
+         style="stop-color:#b5970a;stop-opacity:0;"
+         offset="1"
+         id="stop7824-8" />
+    </linearGradient>
+    <linearGradient
+       gradientTransform="translate(-24.5841,2.5926638)"
+       inkscape:collect="always"
+       xlink:href="#linearGradient3836-84-8"
+       id="linearGradient3850-89-0"
+       gradientUnits="userSpaceOnUse"
+       x1="181.29645"
+       y1="103.20008"
+       x2="244.90361"
+       y2="103.20008" />
+    <linearGradient
+       id="linearGradient3836-84-8">
+      <stop
+         style="stop-color:#7e3e0e;stop-opacity:1;"
+         offset="0"
+         id="stop3838-1-7" />
+      <stop
+         style="stop-color:#da6c18;stop-opacity:1;"
+         offset="1"
+         id="stop3840-4-7" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient7820-9-3"
+       id="linearGradient7826-3-8"
+       x1="21.986607"
+       y1="680.93365"
+       x2="61.1875"
+       y2="125.65401"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(153.20276,63.793554)" />
+    <linearGradient
+       id="linearGradient7820-9-3">
+      <stop
+         style="stop-color:#000000;stop-opacity:0.39215687;"
+         offset="0"
+         id="stop7822-8-8" />
+      <stop
+         style="stop-color:#b5970a;stop-opacity:0;"
+         offset="1"
+         id="stop7824-8-3" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3836-6-1"
+       id="linearGradient4432-7"
+       gradientUnits="userSpaceOnUse"
+       x1="181.29645"
+       y1="103.20008"
+       x2="244.90361"
+       y2="103.20008" />
+    <linearGradient
+       id="linearGradient3836-6-1">
+      <stop
+         id="stop3838-8-4-0"
+         offset="0"
+         style="stop-color:#7e3e0e;stop-opacity:1;" />
+      <stop
+         id="stop3840-5-7"
+         offset="1"
+         style="stop-color:#da6c18;stop-opacity:1;" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3836-6-1"
+       id="linearGradient8075"
+       gradientUnits="userSpaceOnUse"
+       x1="181.29645"
+       y1="103.20008"
+       x2="244.90361"
+       y2="103.20008" />
+    <linearGradient
+       id="linearGradient8077">
+      <stop
+         id="stop8079"
+         offset="0"
+         style="stop-color:#7e3e0e;stop-opacity:1;" />
+      <stop
+         id="stop8081"
+         offset="1"
+         style="stop-color:#da6c18;stop-opacity:1;" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3836-6-1"
+       id="linearGradient8083"
+       gradientUnits="userSpaceOnUse"
+       x1="181.29645"
+       y1="103.20008"
+       x2="244.90361"
+       y2="103.20008" />
+    <linearGradient
+       id="linearGradient8085">
+      <stop
+         id="stop8087"
+         offset="0"
+         style="stop-color:#7e3e0e;stop-opacity:1;" />
+      <stop
+         id="stop8089"
+         offset="1"
+         style="stop-color:#da6c18;stop-opacity:1;" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3836-6-1"
+       id="linearGradient8091"
+       gradientUnits="userSpaceOnUse"
+       x1="181.29645"
+       y1="103.20008"
+       x2="244.90361"
+       y2="103.20008" />
+    <linearGradient
+       id="linearGradient8093">
+      <stop
+         id="stop8095"
+         offset="0"
+         style="stop-color:#7e3e0e;stop-opacity:1;" />
+      <stop
+         id="stop8097"
+         offset="1"
+         style="stop-color:#da6c18;stop-opacity:1;" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3836-6-1"
+       id="linearGradient8099"
+       gradientUnits="userSpaceOnUse"
+       x1="181.29645"
+       y1="103.20008"
+       x2="244.90361"
+       y2="103.20008" />
+    <linearGradient
+       id="linearGradient8101">
+      <stop
+         id="stop8103"
+         offset="0"
+         style="stop-color:#7e3e0e;stop-opacity:1;" />
+      <stop
+         id="stop8105"
+         offset="1"
+         style="stop-color:#da6c18;stop-opacity:1;" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3836-6-1"
+       id="linearGradient8107"
+       gradientUnits="userSpaceOnUse"
+       x1="181.29645"
+       y1="103.20008"
+       x2="244.90361"
+       y2="103.20008" />
+    <linearGradient
+       id="linearGradient8109">
+      <stop
+         id="stop8111"
+         offset="0"
+         style="stop-color:#7e3e0e;stop-opacity:1;" />
+      <stop
+         id="stop8113"
+         offset="1"
+         style="stop-color:#da6c18;stop-opacity:1;" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3836-6-1"
+       id="linearGradient8115"
+       gradientUnits="userSpaceOnUse"
+       x1="181.29645"
+       y1="103.20008"
+       x2="244.90361"
+       y2="103.20008" />
+    <linearGradient
+       id="linearGradient8117">
+      <stop
+         id="stop8119"
+         offset="0"
+         style="stop-color:#7e3e0e;stop-opacity:1;" />
+      <stop
+         id="stop8121"
+         offset="1"
+         style="stop-color:#da6c18;stop-opacity:1;" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3836-6-1"
+       id="linearGradient8123"
+       gradientUnits="userSpaceOnUse"
+       x1="181.29645"
+       y1="103.20008"
+       x2="244.90361"
+       y2="103.20008" />
+    <linearGradient
+       id="linearGradient8125">
+      <stop
+         id="stop8127"
+         offset="0"
+         style="stop-color:#7e3e0e;stop-opacity:1;" />
+      <stop
+         id="stop8129"
+         offset="1"
+         style="stop-color:#da6c18;stop-opacity:1;" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3836-6-1"
+       id="linearGradient8278"
+       gradientUnits="userSpaceOnUse"
+       x1="181.29645"
+       y1="103.20008"
+       x2="244.90361"
+       y2="103.20008" />
+    <linearGradient
+       y2="125.65401"
+       x2="61.1875"
+       y1="680.93365"
+       x1="21.986607"
+       gradientTransform="matrix(1.0512215,0,0,0.94635069,169.34407,42.301721)"
+       gradientUnits="userSpaceOnUse"
+       id="linearGradient7851-4"
+       xlink:href="#linearGradient7820-1-3"
+       inkscape:collect="always" />
+    <linearGradient
+       id="linearGradient7820-1-3">
+      <stop
+         style="stop-color:#000000;stop-opacity:0.39215687;"
+         offset="0"
+         id="stop7822-2-8" />
+      <stop
+         style="stop-color:#b5970a;stop-opacity:0;"
+         offset="1"
+         id="stop7824-5-0" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient7820-1-3"
+       id="linearGradient8330"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.49660556,0,0,0.44706374,32.424015,368.0603)"
+       x1="21.986607"
+       y1="680.93365"
+       x2="61.1875"
+       y2="125.65401" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient7820-9-3-0"
+       id="linearGradient7826-3-8-8"
+       x1="21.986607"
+       y1="680.93365"
+       x2="61.1875"
+       y2="125.65401"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(153.20276,63.793554)" />
+    <linearGradient
+       id="linearGradient7820-9-3-0">
+      <stop
+         style="stop-color:#000000;stop-opacity:0.39215687;"
+         offset="0"
+         id="stop7822-8-8-6" />
+      <stop
+         style="stop-color:#b5970a;stop-opacity:0;"
+         offset="1"
+         id="stop7824-8-3-8" />
+    </linearGradient>
+    <linearGradient
+       gradientTransform="translate(-24.5841,2.5926638)"
+       inkscape:collect="always"
+       xlink:href="#linearGradient3836-84-8-9"
+       id="linearGradient3850-89-0-1"
+       gradientUnits="userSpaceOnUse"
+       x1="181.29645"
+       y1="103.20008"
+       x2="244.90361"
+       y2="103.20008" />
+    <linearGradient
+       id="linearGradient3836-84-8-9">
+      <stop
+         style="stop-color:#7e3e0e;stop-opacity:1;"
+         offset="0"
+         id="stop3838-1-7-8" />
+      <stop
+         style="stop-color:#da6c18;stop-opacity:1;"
+         offset="1"
+         id="stop3840-4-7-9" />
+    </linearGradient>
+    <linearGradient
+       y2="103.20008"
+       x2="244.90361"
+       y1="103.20008"
+       x1="181.29645"
+       gradientTransform="translate(-24.5841,2.5926638)"
+       gradientUnits="userSpaceOnUse"
+       id="linearGradient8355"
+       xlink:href="#linearGradient3836-84-8-9"
+       inkscape:collect="always" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient7820-9-3-0"
+       id="linearGradient8397"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(153.20276,63.793554)"
+       x1="21.986607"
+       y1="680.93365"
+       x2="61.1875"
+       y2="125.65401" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3836-84-8-9"
+       id="linearGradient8399"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(-24.5841,2.5926638)"
        x1="181.29645"
        y1="103.20008"
        x2="244.90361"
@@ -65,16 +664,27 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.49497475"
-     inkscape:cx="-89.095097"
-     inkscape:cy="686.87168"
+     inkscape:cx="66.985353"
+     inkscape:cy="645.37811"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:window-width="1366"
      inkscape:window-height="706"
-     inkscape:window-x="1912"
-     inkscape:window-y="639"
-     inkscape:window-maximized="1" />
+     inkscape:window-x="-8"
+     inkscape:window-y="570"
+     inkscape:window-maximized="1"
+     showguides="true"
+     inkscape:guide-bbox="true">
+    <sodipodi:guide
+       orientation="0,1"
+       position="137.85714,1052.1429"
+       id="guide3905" />
+    <sodipodi:guide
+       orientation="0,1"
+       position="84.285714,442.85714"
+       id="guide3907" />
+  </sodipodi:namedview>
   <metadata
      id="metadata7">
     <rdf:RDF>
@@ -100,17 +710,17 @@
          inkscape:export-filename="C:\Users\idji\psychopy\match_0.png"
          sodipodi:nodetypes="ccccc"
          inkscape:connector-curvature="0"
-         d="m 183.25603,98.330024 20.79478,24.691816 0,549.52301 -20.79478,-24.69181 z"
+         d="m 21.529084,103.77983 20.79477,24.69182 0,549.52304 -20.79477,-24.6918 z"
          style="fill:#eee356;fill-opacity:1;stroke:#000000;stroke-width:1.25;stroke-linecap:butt;stroke-miterlimit:4;stroke-opacity:1;stroke-dashoffset:0"
-         id="path3846" />
+         id="path3846-0" />
       <path
          inkscape:export-ydpi="29.450001"
          inkscape:export-xdpi="29.450001"
          inkscape:export-filename="C:\Users\idji\psychopy\match_0.png"
          sodipodi:nodetypes="ccccc"
          inkscape:connector-curvature="0"
-         id="rect3033-1"
-         d="m 203.90724,122.27165 34.44671,-10 0,549.52301 -34.44671,10 z"
+         id="rect3033-1-3"
+         d="m 42.180284,127.72146 34.446711,-10 0,549.52303 -34.446711,10 z"
          style="fill:#f4eb9c;fill-opacity:1;stroke:#000000;stroke-width:1.25;stroke-linecap:butt;stroke-miterlimit:4;stroke-opacity:1;stroke-dashoffset:0" />
       <path
          inkscape:export-ydpi="29.450001"
@@ -118,9 +728,692 @@
          inkscape:export-filename="C:\Users\idji\psychopy\match_0.png"
          sodipodi:nodetypes="cccc"
          inkscape:connector-curvature="0"
-         id="path3833"
-         d="m 238.30872,136.6269 c -11.68481,10.8919 -20.63728,13.88312 -34.77612,14.39734 -12.88657,-11.93357 -15.798,-13.51282 -21.68579,-30.46204 -14.00481,-81.338262 87.45851,-75.089479 56.46191,16.0647 z"
-         style="fill:url(#linearGradient3850);fill-opacity:1;stroke:#000000;stroke-width:1.16539097;stroke-opacity:1" />
+         id="path3833-8"
+         d="M 76.581765,142.07671 C 64.896955,152.96861 55.944484,155.95983 41.805644,156.47405 28.919074,144.54048 26.007654,142.96123 20.119864,126.01201 6.1150435,44.673749 107.57836,50.922529 76.581765,142.07671 z"
+         style="fill:url(#linearGradient3850-8);fill-opacity:1;stroke:#000000;stroke-width:1.16539097;stroke-opacity:1" />
+    </g>
+    <g
+       id="layer1-9"
+       inkscape:label="Layer 1"
+       transform="matrix(0.99203398,0,0,0.99203398,135.28966,5.8307623)"
+       inkscape:export-filename="C:\Users\idji\Documents\GitHub\match.psychology\img\cap_match_1.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <g
+         transform="translate(-177.78685,-62.629458)"
+         id="match-4">
+        <path
+           id="path3846-5"
+           style="fill:#b99b0a;fill-opacity:1;stroke:#000000;stroke-width:1.25;stroke-linecap:butt;stroke-miterlimit:4;stroke-opacity:1;stroke-dashoffset:0"
+           d="m 183.25603,138.89882 c 7.71514,6.36784 13.86339,2.81198 20.79478,4.21606 l 0,529.42997 -20.79478,-24.69181 z"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="ccccc"
+           inkscape:export-filename="C:\Users\idji\psychopy\match_0.png"
+           inkscape:export-xdpi="29.450001"
+           inkscape:export-ydpi="29.450001" />
+        <path
+           style="fill:#f1e363;fill-opacity:1;stroke:#000000;stroke-width:1.25;stroke-linecap:butt;stroke-miterlimit:4;stroke-opacity:1;stroke-dashoffset:0"
+           d="m 203.90724,122.27165 34.44671,-10 0,549.52301 -34.44671,10 z"
+           id="rect3033-1-5"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="ccccc"
+           inkscape:export-filename="C:\Users\idji\psychopy\match_0.png"
+           inkscape:export-xdpi="29.450001"
+           inkscape:export-ydpi="29.450001" />
+        <path
+           style="fill:url(#linearGradient3850-4);fill-opacity:1;stroke:#000000;stroke-width:1.16539097;stroke-opacity:1"
+           d="m 238.30872,136.6269 c -11.68481,10.8919 -20.63728,13.88312 -34.77612,14.39734 -6.45154,-5.94889 -16.08686,-9.84483 -11.49225,-8.79514 10.41115,2.37853 1.81672,-5.03259 -8.02096,-10.90134 -2.77485,-1.65536 -1.42091,-4.96764 -2.17258,-10.76556 -14.00481,-81.338262 87.45851,-75.089479 56.46191,16.0647 z"
+           id="path3833-1"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="ccsscc"
+           inkscape:export-filename="C:\Users\idji\psychopy\match_0.png"
+           inkscape:export-xdpi="29.450001"
+           inkscape:export-ydpi="29.450001" />
+      </g>
+    </g>
+    <path
+       sodipodi:type="arc"
+       style="fill:#fdedd7;fill-opacity:1;stroke:#000000;stroke-width:1.25;stroke-linecap:butt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="path3033"
+       sodipodi:cx="122.60726"
+       sodipodi:cy="648.86938"
+       sodipodi:rx="4.4194174"
+       sodipodi:ry="13.826463"
+       d="m 127.02668,648.86938 a 4.4194174,13.826463 0 1 1 -8.83884,0 4.4194174,13.826463 0 1 1 8.83884,0 z"
+       transform="matrix(1.3472173,0.14000805,-0.14000805,1.3472173,70.138038,-847.78665)"
+       inkscape:export-filename="C:\Users\idji\Documents\GitHub\match.psychology\img\cap_match_1.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       sodipodi:type="arc"
+       style="fill:#fdedd7;fill-opacity:1;stroke:#000000;stroke-width:1.25;stroke-linecap:butt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="path3035"
+       sodipodi:cx="138.83284"
+       sodipodi:cy="657.01373"
+       sodipodi:rx="6.1240497"
+       sodipodi:ry="10.101525"
+       d="m 144.95689,657.01373 a 6.1240497,10.101525 0 1 1 -12.2481,0 6.1240497,10.101525 0 1 1 12.2481,0 z"
+       transform="matrix(1.2790014,0.33648542,-0.36931447,1.4679736,224.57577,-950.88175)"
+       inkscape:export-filename="C:\Users\idji\Documents\GitHub\match.psychology\img\cap_match_1.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:#2b50f1;fill-opacity:1;stroke:#000000;stroke-width:2.05349016;stroke-linecap:butt;stroke-miterlimit:4;stroke-opacity:1;stroke-dashoffset:0"
+       d="m 204.43335,47.198636 c 0,0 18.58146,9.279093 16.51591,17.654915 -3.75772,15.237407 -63.3425,-9.658258 -85.50058,-25.637039 2.69332,-26.721264 24.1162,-40.03726332 43.16578,-34.4255965 19.04959,5.6116365 29.08174,30.1141225 24.86973,56.6455385"
+       id="path3030"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cscsc"
+       inkscape:export-filename="C:\Users\idji\Documents\GitHub\match.psychology\img\cap_match_1.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       sodipodi:type="arc"
+       style="fill:#e78a0b;fill-opacity:1;stroke:none"
+       id="path3039"
+       sodipodi:cx="101.4572"
+       sodipodi:cy="617.74408"
+       sodipodi:rx="2.4622469"
+       sodipodi:ry="2.6516504"
+       d="m 103.91945,617.74408 a 2.4622469,2.6516504 0 1 1 -4.924498,0 2.4622469,2.6516504 0 1 1 4.924498,0 z"
+       transform="matrix(1.1433224,0.05947809,-0.07930409,1.5244298,90.079284,-885.7014)"
+       inkscape:export-filename="C:\Users\idji\Documents\GitHub\match.psychology\img\cap_match_1.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#path3039"
+       id="use3809"
+       transform="translate(-14.228986,-11.00733)"
+       width="744.09448"
+       height="1052.3622"
+       inkscape:export-filename="C:\Users\idji\Documents\GitHub\match.psychology\img\cap_match_1.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:2.12618399px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 139.45416,71.408747 c 3.39632,6.915844 16.16647,9.327673 24.21129,8.639965 -3.89057,4.535577 -14.34055,7.237276 -23.69062,0.645338"
+       id="path3811"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccc"
+       inkscape:export-filename="C:\Users\idji\Documents\GitHub\match.psychology\img\cap_match_1.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <g
+       transform="matrix(2.1168138,0,0,2.1168138,241.11968,-746.40985)"
+       id="g4166"
+       inkscape:export-filename="C:\Users\idji\Documents\GitHub\match.psychology\img\ani_match_1_0.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <g
+         transform="matrix(0.46657952,0,0,0.46657952,33.097615,356.23232)"
+         inkscape:label="Layer 1"
+         id="layer1-9-7">
+        <g
+           id="match-6"
+           transform="translate(-177.78685,-62.629458)">
+          <path
+             inkscape:export-ydpi="29.450001"
+             inkscape:export-xdpi="29.450001"
+             inkscape:export-filename="C:\Users\idji\psychopy\match_0.png"
+             sodipodi:nodetypes="ccccc"
+             inkscape:connector-curvature="0"
+             d="m 183.25603,98.330024 20.79478,24.691816 0,549.52301 -20.79478,-24.69181 z"
+             style="fill:#b99b0a;fill-opacity:1;stroke:#000000;stroke-width:1.25000000000000000;stroke-linecap:butt;stroke-miterlimit:4;stroke-opacity:1;stroke-dashoffset:0"
+             id="path3846-1" />
+          <path
+             inkscape:export-ydpi="29.450001"
+             inkscape:export-xdpi="29.450001"
+             inkscape:export-filename="C:\Users\idji\psychopy\match_0.png"
+             sodipodi:nodetypes="ccccc"
+             inkscape:connector-curvature="0"
+             id="rect3033-1-8"
+             d="m 203.90724,122.27165 34.44671,-10 0,549.52301 -34.44671,10 z"
+             style="fill:#f1e363;fill-opacity:1;stroke:#000000;stroke-width:1.25000000000000000;stroke-linecap:butt;stroke-miterlimit:4;stroke-opacity:1;stroke-dashoffset:0" />
+          <path
+             inkscape:export-ydpi="29.450001"
+             inkscape:export-xdpi="29.450001"
+             inkscape:export-filename="C:\Users\idji\psychopy\match_0.png"
+             sodipodi:nodetypes="cccc"
+             inkscape:connector-curvature="0"
+             id="path3833-9"
+             d="m 238.30872,136.6269 c -11.68481,10.8919 -20.63728,13.88312 -34.77612,14.39734 -12.88657,-11.93357 -15.798,-13.51282 -21.68579,-30.46204 -14.00481,-81.338262 87.45851,-75.089479 56.46191,16.0647 z"
+             style="fill:url(#linearGradient4432);fill-opacity:1;stroke:#000000;stroke-width:1.16539097;stroke-opacity:1" />
+        </g>
+      </g>
+      <path
+         transform="translate(-94.472792,-296.8107)"
+         d="m 145.46196,676.83795 c 0,11.01837 -8.93214,19.95051 -19.95051,19.95051 -11.01836,0 -19.95051,-8.93214 -19.95051,-19.95051 0,-11.01836 8.93215,-19.95051 19.95051,-19.95051 11.01837,0 19.95051,8.93215 19.95051,19.95051 z"
+         sodipodi:ry="19.950512"
+         sodipodi:rx="19.950512"
+         sodipodi:cy="676.83795"
+         sodipodi:cx="125.51145"
+         id="path3909-2"
+         style="fill:#fefbee;fill-opacity:1;stroke:#000000;stroke-opacity:1"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(1.0941176,0,0,1.0941176,18.688065,-302.34614)"
+         d="m 64.144686,622.28973 c 0,11.85521 -9.61054,21.46575 -21.465742,21.46575 -11.855202,0 -21.465742,-9.61054 -21.465742,-21.46575 0,-11.8552 9.61054,-21.46574 21.465742,-21.46574 11.855202,0 21.465742,9.61054 21.465742,21.46574 z"
+         sodipodi:ry="21.465742"
+         sodipodi:rx="21.465742"
+         sodipodi:cy="622.28973"
+         sodipodi:cx="42.678944"
+         id="path3911-7"
+         style="fill:#fefbee;fill-opacity:1;stroke:#000000;stroke-opacity:1"
+         sodipodi:type="arc" />
+      <path
+         transform="translate(-27.802725,-228.6254)"
+         d="m 66.164994,612.6933 c 0,2.37104 -1.922108,4.29315 -4.293149,4.29315 -2.37104,0 -4.293148,-1.92211 -4.293148,-4.29315 0,-2.37104 1.922108,-4.29315 4.293148,-4.29315 2.371041,0 4.293149,1.92211 4.293149,4.29315 z"
+         sodipodi:ry="4.2931485"
+         sodipodi:rx="4.2931485"
+         sodipodi:cy="612.6933"
+         sodipodi:cx="61.871845"
+         id="path3913-9"
+         style="fill:#e79100;fill-opacity:1;stroke:none"
+         sodipodi:type="arc" />
+      <use
+         height="1052.3622"
+         width="744.09448"
+         transform="translate(27.274117,-1.5152265)"
+         id="use3915-5"
+         xlink:href="#path3913-9"
+         y="0"
+         x="0" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path7828-8"
+         d="m 35.139825,384.01489 0,245.67551 10.32008,11.03689 0,-0.34927 17.039784,-4.45667 0,-245.66154 -17.101854,4.47064 0,0.26545 -10.25801,-10.98101 z"
+         style="fill:url(#linearGradient8330);fill-opacity:1;stroke:none" />
+    </g>
+    <use
+       x="0"
+       y="0"
+       xlink:href="#g4166"
+       id="use4179"
+       transform="translate(211.69217,-7.7069328e-7)"
+       width="744.09448"
+       height="1052.3622"
+       inkscape:export-filename="C:\Users\idji\Documents\GitHub\match.psychology\img\ani_match_1_1.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#g4166"
+       id="use4181"
+       transform="translate(393.44809,-7.7069328e-7)"
+       width="744.09448"
+       height="1052.3622"
+       inkscape:export-filename="C:\Users\idji\Documents\GitHub\match.psychology\img\ani_match_1_2.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#g4166"
+       id="use4183"
+       transform="translate(579.48061,-7.7069328e-7)"
+       width="744.09448"
+       height="1052.3622"
+       inkscape:export-filename="C:\Users\idji\Documents\GitHub\match.psychology\img\ani_match_1_3.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#g4166"
+       id="use4185"
+       transform="translate(764.44398,-7.7069328e-7)"
+       width="744.09448"
+       height="1052.3622"
+       inkscape:export-filename="C:\Users\idji\Documents\GitHub\match.psychology\img\ani_match_1_4.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#g4166"
+       id="use4187"
+       transform="translate(967.6863,-7.7069328e-7)"
+       width="744.09448"
+       height="1052.3622"
+       inkscape:export-filename="C:\Users\idji\Documents\GitHub\match.psychology\img\ani_match_1_5.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#g4166"
+       id="use4189"
+       transform="translate(1188.4397,-7.7069328e-7)"
+       width="744.09448"
+       height="1052.3622"
+       inkscape:export-filename="C:\Users\idji\Documents\GitHub\match.psychology\img\ani_match_1_6.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#g4166"
+       id="use4191"
+       transform="translate(1403.1451,-7.7069328e-7)"
+       width="744.09448"
+       height="1052.3622"
+       inkscape:export-filename="C:\Users\idji\Documents\GitHub\match.psychology\img\ani_match_1_7.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       inkscape:connector-curvature="0"
+       style="fill:#6c5806;fill-opacity:1;stroke:#000000;stroke-width:2.11681366;stroke-opacity:1"
+       d="m 591.21729,5.1140092 c -12.32659,0 -23.5417,4.4762779 -32.21526,11.9070788 L 606.63034,7.5615751 C 601.78381,5.9886343 596.58735,5.1140092 591.21729,5.1140092 z M 518.51797,15.764228 c -13.3238,0 -25.14437,6.226461 -32.87677,15.876105 l 53.2511,-10.584069 c -6.04713,-3.34609 -12.98225,-5.292036 -20.37433,-5.292036 z"
+       id="path3921-7"
+       inkscape:export-filename="C:\Users\idji\Documents\GitHub\match.psychology\img\ani_match_1.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       inkscape:connector-curvature="0"
+       style="fill:#6c5806;fill-opacity:1;stroke:#000000;stroke-width:2.11681366;stroke-opacity:1"
+       d="m 772.97321,5.1140092 c -17.88117,0 -33.5105,9.4474248 -42.27013,23.6157048 -7.68206,-7.97389 -18.48241,-12.965486 -30.4292,-12.965486 -17.86675,0 -33.06488,11.104235 -39.2272,26.790926 L 807.23913,18.740999 C 798.31892,10.29146 786.2309,5.1140092 772.97321,5.1140092 z"
+       id="path3921-1"
+       inkscape:export-filename="C:\Users\idji\Documents\GitHub\match.psychology\img\ani_match_2.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       inkscape:connector-curvature="0"
+       style="fill:#6c5806;fill-opacity:1;stroke:#000000;stroke-width:2.11681366;stroke-opacity:1"
+       d="m 959.00572,5.1140092 c -17.88117,0 -33.51049,9.4474248 -42.27012,23.6157048 -7.68207,-7.97389 -18.48241,-12.965486 -30.4292,-12.965486 -21.02257,0 -38.37726,15.406638 -41.60862,35.522782 L 1002.4666,30.449625 C 993.93827,15.313876 977.62153,5.1140092 959.00572,5.1140092 z"
+       id="path3921-15"
+       inkscape:export-filename="C:\Users\idji\Documents\GitHub\match.psychology\img\ani_match_3.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       inkscape:connector-curvature="0"
+       style="fill:#6c5806;fill-opacity:1;stroke:#000000;stroke-width:2.11681366;stroke-opacity:1"
+       d="m 1143.9691,5.1140092 c -17.8812,0 -33.5105,9.4474248 -42.2701,23.6157048 -7.6821,-7.97389 -18.4824,-12.965486 -30.4292,-12.965486 -23.3238,0 -42.204,18.94631 -42.204,42.270126 0,1.77732 0.184,3.506566 0.3969,5.225884 L 1193.3835,48.905595 C 1190.4726,24.222615 1169.438,5.1140092 1143.9691,5.1140092 z"
+       id="path3921-2"
+       inkscape:export-filename="C:\Users\idji\Documents\GitHub\match.psychology\img\ani_match_4.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       inkscape:connector-curvature="0"
+       style="fill:#6c5806;fill-opacity:1;stroke:#000000;stroke-width:2.11681366;stroke-opacity:1"
+       d="m 1347.2114,5.1140092 c -17.8812,0 -33.5105,9.4474248 -42.2701,23.6157048 -7.6821,-7.97389 -18.4824,-12.965486 -30.4292,-12.965486 -23.3238,0 -42.204,18.94631 -42.204,42.270126 0,6.612588 1.5936,12.820568 4.2998,18.38982 l 157.8349,-5.953539 c 1.647,-4.942104 2.5137,-10.18471 2.5137,-15.677652 0,-27.45717 -22.2879,-49.6789738 -49.7451,-49.6789738 z"
+       id="path3921-76"
+       inkscape:export-filename="C:\Users\idji\Documents\GitHub\match.psychology\img\ani_match_5.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       inkscape:connector-curvature="0"
+       style="fill:#6c5806;fill-opacity:1;stroke:#000000;stroke-width:2.11681366;stroke-opacity:1"
+       d="m 1567.9648,5.1140092 c -17.8811,0 -33.5104,9.4474248 -42.2701,23.6157048 -7.682,-7.97389 -18.4824,-12.965486 -30.4292,-12.965486 -23.3238,0 -42.204,18.94631 -42.204,42.270126 0,11.695312 4.7622,22.259377 12.4363,29.899995 l 59.337,0.264602 c 1.1768,-1.150319 2.2717,-2.357411 3.3075,-3.638274 0.9753,1.304105 2.0796,2.503556 3.1752,3.704424 l 73.0962,0.330752 c 8.2521,-8.880626 13.2963,-20.734614 13.2963,-33.80287 0,-27.45717 -22.288,-49.6789738 -49.7452,-49.6789738 z"
+       id="path3921-14"
+       inkscape:export-filename="C:\Users\idji\Documents\GitHub\match.psychology\img\ani_match_6.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       inkscape:connector-curvature="0"
+       style="fill:#6c5806;fill-opacity:1;stroke:#000000;stroke-width:2.11681366;stroke-opacity:1"
+       d="m 1782.6702,5.1211005 c -17.8811,0 -33.5105,9.4474245 -42.2701,23.6157045 -7.6821,-7.973889 -18.4824,-12.965485 -30.4292,-12.965485 -23.3238,0 -42.204,18.946309 -42.204,42.270126 0,23.323816 18.8802,42.203974 42.204,42.203974 13.2716,0 25.1347,-6.103705 32.8768,-15.677652 9.0662,12.122993 23.5199,19.977432 39.8225,19.977432 27.4572,0 49.7452,-22.287955 49.7452,-49.745125 0,-27.457171 -22.288,-49.6789745 -49.7452,-49.6789745 z"
+       id="path3921-22"
+       inkscape:export-filename="C:\Users\idji\Documents\GitHub\match.psychology\img\ani_match_7.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path7828"
+       d="m 137.71729,67.9934 0,520.04931 21.84569,23.36304 0,-0.73934 36.07005,-9.43394 0,-520.019737 -36.20145,9.463511 0,0.561892 L 137.71729,67.9934 z"
+       style="fill:url(#linearGradient7851);fill-opacity:1;stroke:none"
+       inkscape:export-filename="C:\Users\idji\Documents\GitHub\match.psychology\img\cap_match_1.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <g
+       id="g7930"
+       inkscape:export-filename="C:\Users\idji\Documents\GitHub\match.psychology\img\cap_match_0.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <g
+         transform="matrix(0.99203398,0,0,0.99203398,-282.98945,9.7617036)"
+         inkscape:label="Layer 1"
+         id="layer1-9-3">
+        <g
+           id="match-4-5"
+           transform="translate(-177.78685,-62.629458)">
+          <path
+             inkscape:export-ydpi="29.450001"
+             inkscape:export-xdpi="29.450001"
+             inkscape:export-filename="C:\Users\idji\psychopy\match_0.png"
+             sodipodi:nodetypes="ccccc"
+             inkscape:connector-curvature="0"
+             d="m 183.25603,138.89882 c 7.71514,6.36784 13.86339,2.81198 20.79478,4.21606 l 0,529.42997 -20.79478,-24.69181 z"
+             style="fill:#eee356;fill-opacity:1;stroke:#000000;stroke-width:1.25;stroke-linecap:butt;stroke-miterlimit:4;stroke-opacity:1;stroke-dashoffset:0"
+             id="path3846-5-1" />
+          <path
+             inkscape:export-ydpi="29.450001"
+             inkscape:export-xdpi="29.450001"
+             inkscape:export-filename="C:\Users\idji\psychopy\match_0.png"
+             sodipodi:nodetypes="ccccc"
+             inkscape:connector-curvature="0"
+             id="rect3033-1-5-2"
+             d="m 203.90724,122.27165 34.44671,-10 0,549.52301 -34.44671,10 z"
+             style="fill:#f4eb9c;fill-opacity:1;stroke:#000000;stroke-width:1.25;stroke-linecap:butt;stroke-miterlimit:4;stroke-opacity:1;stroke-dashoffset:0" />
+          <path
+             inkscape:export-ydpi="29.450001"
+             inkscape:export-xdpi="29.450001"
+             inkscape:export-filename="C:\Users\idji\psychopy\match_0.png"
+             sodipodi:nodetypes="ccsscc"
+             inkscape:connector-curvature="0"
+             id="path3833-1-0"
+             d="m 238.30872,136.6269 c -11.68481,10.8919 -20.63728,13.88312 -34.77612,14.39734 -6.45154,-5.94889 -16.08686,-9.84483 -11.49225,-8.79514 10.41115,2.37853 1.81672,-5.03259 -8.02096,-10.90134 -2.77485,-1.65536 -1.42091,-4.96764 -2.17258,-10.76556 -14.00481,-81.338262 87.45851,-75.089479 56.46191,16.0647 z"
+             style="fill:url(#linearGradient3850-4-0);fill-opacity:1;stroke:#000000;stroke-width:1.16539097;stroke-opacity:1" />
+        </g>
+      </g>
+      <path
+         transform="matrix(1.3472173,0.14000805,-0.14000805,1.3472173,-348.14107,-843.85572)"
+         d="m 127.02668,648.86938 a 4.4194174,13.826463 0 1 1 -8.83884,0 4.4194174,13.826463 0 1 1 8.83884,0 z"
+         sodipodi:ry="13.826463"
+         sodipodi:rx="4.4194174"
+         sodipodi:cy="648.86938"
+         sodipodi:cx="122.60726"
+         id="path3033-1"
+         style="fill:#fdedd7;fill-opacity:1;stroke:#000000;stroke-width:1.25;stroke-linecap:butt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(1.2790014,0.33648542,-0.36931447,1.4679736,-193.70334,-946.95079)"
+         d="m 144.95689,657.01373 a 6.1240497,10.101525 0 1 1 -12.2481,0 6.1240497,10.101525 0 1 1 12.2481,0 z"
+         sodipodi:ry="10.101525"
+         sodipodi:rx="6.1240497"
+         sodipodi:cy="657.01373"
+         sodipodi:cx="138.83284"
+         id="path3035-6"
+         style="fill:#fdedd7;fill-opacity:1;stroke:#000000;stroke-width:1.25;stroke-linecap:butt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+         sodipodi:type="arc" />
+      <path
+         sodipodi:nodetypes="cscsc"
+         inkscape:connector-curvature="0"
+         id="path3030-4"
+         d="m -213.84576,51.129583 c 0,0 18.58146,9.279093 16.51591,17.654915 -3.75772,15.237407 -63.3425,-9.658258 -85.50058,-25.637039 2.69332,-26.721264 24.1162,-40.0372654 43.16578,-34.4255954 19.04959,5.6116344 29.08174,30.1141214 24.86973,56.6455374"
+         style="fill:#2b50f1;fill-opacity:1;stroke:#000000;stroke-width:2.05349016;stroke-linecap:butt;stroke-miterlimit:4;stroke-opacity:1;stroke-dashoffset:0" />
+      <path
+         transform="matrix(1.1433224,0.05947809,-0.07930409,1.5244298,-328.19982,-881.77047)"
+         d="m 103.91945,617.74408 a 2.4622469,2.6516504 0 1 1 -4.924498,0 2.4622469,2.6516504 0 1 1 4.924498,0 z"
+         sodipodi:ry="2.6516504"
+         sodipodi:rx="2.4622469"
+         sodipodi:cy="617.74408"
+         sodipodi:cx="101.4572"
+         id="path3039-0"
+         style="fill:#e78a0b;fill-opacity:1;stroke:none"
+         sodipodi:type="arc" />
+      <use
+         height="1052.3622"
+         width="744.09448"
+         transform="translate(-14.228983,-11.007326)"
+         id="use3809-6"
+         xlink:href="#path3039-0"
+         y="0"
+         x="0" />
+      <path
+         sodipodi:nodetypes="ccc"
+         inkscape:connector-curvature="0"
+         id="path3811-1"
+         d="m -278.82495,75.339694 c 3.39632,6.915844 16.16647,9.327673 24.21129,8.639965 -3.89057,4.535577 -14.34055,7.237276 -23.69062,0.645338"
+         style="fill:none;stroke:#000000;stroke-width:2.12618399px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    </g>
+    <g
+       transform="matrix(2.1168138,0,0,2.1168138,-1938.7895,-740.79491)"
+       id="g4166-3"
+       inkscape:export-filename="C:\Users\idji\Documents\GitHub\match.psychology\img\ani_match_0.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <g
+         transform="matrix(0.46657952,0,0,0.46657952,33.097615,356.23232)"
+         inkscape:label="Layer 1"
+         id="layer1-9-7-4">
+        <g
+           id="match-6-9"
+           transform="translate(-177.78685,-62.629458)">
+          <path
+             inkscape:export-ydpi="29.450001"
+             inkscape:export-xdpi="29.450001"
+             inkscape:export-filename="C:\Users\idji\psychopy\match_0.png"
+             sodipodi:nodetypes="ccccc"
+             inkscape:connector-curvature="0"
+             d="m 183.25603,98.330024 20.79478,24.691816 0,549.52301 -20.79478,-24.69181 z"
+             style="fill:#eee356;fill-opacity:1;stroke:#000000;stroke-width:1.25;stroke-linecap:butt;stroke-miterlimit:4;stroke-opacity:1;stroke-dashoffset:0"
+             id="path3846-1-6" />
+          <path
+             inkscape:export-ydpi="29.450001"
+             inkscape:export-xdpi="29.450001"
+             inkscape:export-filename="C:\Users\idji\psychopy\match_0.png"
+             sodipodi:nodetypes="ccccc"
+             inkscape:connector-curvature="0"
+             id="rect3033-1-8-5"
+             d="m 203.90724,122.27165 34.44671,-10 0,549.52301 -34.44671,10 z"
+             style="fill:#f4eb9c;fill-opacity:1;stroke:#000000;stroke-width:1.25;stroke-linecap:butt;stroke-miterlimit:4;stroke-opacity:1;stroke-dashoffset:0" />
+          <path
+             inkscape:export-ydpi="29.450001"
+             inkscape:export-xdpi="29.450001"
+             inkscape:export-filename="C:\Users\idji\psychopy\match_0.png"
+             sodipodi:nodetypes="cccc"
+             inkscape:connector-curvature="0"
+             id="path3833-9-1"
+             d="m 238.30872,136.6269 c -11.68481,10.8919 -20.63728,13.88312 -34.77612,14.39734 -12.88657,-11.93357 -15.798,-13.51282 -21.68579,-30.46204 -14.00481,-81.338262 87.45851,-75.089479 56.46191,16.0647 z"
+             style="fill:url(#linearGradient8278);fill-opacity:1;stroke:#000000;stroke-width:1.16539097;stroke-opacity:1" />
+        </g>
+      </g>
+      <path
+         transform="translate(-94.472792,-296.8107)"
+         d="m 145.46196,676.83795 c 0,11.01837 -8.93214,19.95051 -19.95051,19.95051 -11.01836,0 -19.95051,-8.93214 -19.95051,-19.95051 0,-11.01836 8.93215,-19.95051 19.95051,-19.95051 11.01837,0 19.95051,8.93215 19.95051,19.95051 z"
+         sodipodi:ry="19.950512"
+         sodipodi:rx="19.950512"
+         sodipodi:cy="676.83795"
+         sodipodi:cx="125.51145"
+         id="path3909-2-0"
+         style="fill:#fefbee;fill-opacity:1;stroke:#000000;stroke-opacity:1"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(1.0941176,0,0,1.0941176,18.688065,-302.34614)"
+         d="m 64.144686,622.28973 c 0,11.85521 -9.61054,21.46575 -21.465742,21.46575 -11.855202,0 -21.465742,-9.61054 -21.465742,-21.46575 0,-11.8552 9.61054,-21.46574 21.465742,-21.46574 11.855202,0 21.465742,9.61054 21.465742,21.46574 z"
+         sodipodi:ry="21.465742"
+         sodipodi:rx="21.465742"
+         sodipodi:cy="622.28973"
+         sodipodi:cx="42.678944"
+         id="path3911-7-9"
+         style="fill:#fefbee;fill-opacity:1;stroke:#000000;stroke-opacity:1"
+         sodipodi:type="arc" />
+      <path
+         transform="translate(-27.802725,-228.6254)"
+         d="m 66.164994,612.6933 c 0,2.37104 -1.922108,4.29315 -4.293149,4.29315 -2.37104,0 -4.293148,-1.92211 -4.293148,-4.29315 0,-2.37104 1.922108,-4.29315 4.293148,-4.29315 2.371041,0 4.293149,1.92211 4.293149,4.29315 z"
+         sodipodi:ry="4.2931485"
+         sodipodi:rx="4.2931485"
+         sodipodi:cy="612.6933"
+         sodipodi:cx="61.871845"
+         id="path3913-9-9"
+         style="fill:#e79100;fill-opacity:1;stroke:none"
+         sodipodi:type="arc" />
+      <use
+         height="1052.3622"
+         width="744.09448"
+         transform="translate(27.274117,-1.5152265)"
+         id="use3915-5-6"
+         xlink:href="#path3913-9-9"
+         y="0"
+         x="0" />
+    </g>
+    <use
+       x="0"
+       y="0"
+       xlink:href="#g4166-3"
+       id="use4179-8"
+       transform="translate(211.69212,-7.9199984e-6)"
+       width="744.09448"
+       height="1052.3622"
+       inkscape:export-filename="C:\Users\idji\Documents\GitHub\match.psychology\img\ani_match_1.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#g4166-3"
+       id="use4181-3"
+       transform="translate(393.44812,-7.9199984e-6)"
+       width="744.09448"
+       height="1052.3622"
+       inkscape:export-filename="C:\Users\idji\Documents\GitHub\match.psychology\img\ani_match_2.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#g4166-3"
+       id="use4183-4"
+       transform="translate(579.48062,-7.9199984e-6)"
+       width="744.09448"
+       height="1052.3622"
+       inkscape:export-filename="C:\Users\idji\Documents\GitHub\match.psychology\img\ani_match_3.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#g4166-3"
+       id="use4185-8"
+       transform="translate(764.44404,-7.9199984e-6)"
+       width="744.09448"
+       height="1052.3622"
+       inkscape:export-filename="C:\Users\idji\Documents\GitHub\match.psychology\img\ani_match_4.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#g4166-3"
+       id="use4187-4"
+       transform="translate(967.68634,-7.9199984e-6)"
+       width="744.09448"
+       height="1052.3622"
+       inkscape:export-filename="C:\Users\idji\Documents\GitHub\match.psychology\img\ani_match_5.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#g4166-3"
+       id="use4189-9"
+       transform="translate(1188.4397,-7.9199984e-6)"
+       width="744.09448"
+       height="1052.3622"
+       inkscape:export-filename="C:\Users\idji\Documents\GitHub\match.psychology\img\ani_match_6.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#g4166-3"
+       id="use4191-9"
+       transform="translate(1403.1451,-7.9199984e-6)"
+       width="744.09448"
+       height="1052.3622"
+       inkscape:export-filename="C:\Users\idji\Documents\GitHub\match.psychology\img\ani_match_7.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       inkscape:connector-curvature="0"
+       style="fill:#6c5806;fill-opacity:1;stroke:#000000;stroke-width:2.11681366;stroke-opacity:1"
+       d="m -1588.6919,10.728962 c -12.3266,0 -23.5417,4.47628 -32.2153,11.90708 l 47.6283,-9.45952 c -4.8465,-1.57294 -10.0429,-2.44756 -15.413,-2.44756 z m -72.6993,10.65022 c -13.3238,0 -25.1444,6.22646 -32.8768,15.8761 l 53.2511,-10.58407 c -6.0471,-3.34609 -12.9822,-5.29203 -20.3743,-5.29203 z"
+       id="path3921-7-2"
+       inkscape:export-filename="C:\Users\idji\Documents\GitHub\match.psychology\img\ani_match_1.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       inkscape:connector-curvature="0"
+       style="fill:#6c5806;fill-opacity:1;stroke:#000000;stroke-width:2.11681366;stroke-opacity:1"
+       d="m -1406.936,10.728962 c -17.8812,0 -33.5105,9.44742 -42.2701,23.6157 -7.6821,-7.97389 -18.4824,-12.96548 -30.4292,-12.96548 -17.8668,0 -33.0649,11.10423 -39.2272,26.79092 l 146.1925,-23.81415 c -8.9202,-8.44954 -21.0083,-13.62699 -34.266,-13.62699 z"
+       id="path3921-1-5"
+       inkscape:export-filename="C:\Users\idji\Documents\GitHub\match.psychology\img\ani_match_2.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       inkscape:connector-curvature="0"
+       style="fill:#6c5806;fill-opacity:1;stroke:#000000;stroke-width:2.11681366;stroke-opacity:1"
+       d="m -1220.9034,10.728962 c -17.8812,0 -33.5105,9.44742 -42.2702,23.6157 -7.682,-7.97389 -18.4824,-12.96548 -30.4292,-12.96548 -21.0225,0 -38.3772,15.40664 -41.6086,35.52278 l 157.7688,-20.83739 c -8.5283,-15.13574 -24.845,-25.33561 -43.4608,-25.33561 z"
+       id="path3921-15-5"
+       inkscape:export-filename="C:\Users\idji\Documents\GitHub\match.psychology\img\ani_match_3.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       inkscape:connector-curvature="0"
+       style="fill:#6c5806;fill-opacity:1;stroke:#000000;stroke-width:2.11681366;stroke-opacity:1"
+       d="m -1035.9401,10.728962 c -17.8812,0 -33.5105,9.44742 -42.2701,23.6157 -7.6821,-7.97389 -18.4824,-12.96548 -30.4292,-12.96548 -23.3238,0 -42.204,18.94631 -42.204,42.27012 0,1.77732 0.184,3.50657 0.3969,5.22589 l 163.92084,-14.35465 c -2.9109,-24.68298 -23.94554,-43.79158 -49.41444,-43.79158 z"
+       id="path3921-2-3"
+       inkscape:export-filename="C:\Users\idji\Documents\GitHub\match.psychology\img\ani_match_4.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       inkscape:connector-curvature="0"
+       style="fill:#6c5806;fill-opacity:1;stroke:#000000;stroke-width:2.11681366;stroke-opacity:1"
+       d="m -832.69774,10.728962 c -17.8812,0 -33.5105,9.44742 -42.2701,23.6157 -7.6821,-7.97389 -18.4824,-12.96548 -30.4292,-12.96548 -23.32382,0 -42.20402,18.94631 -42.20402,42.27012 0,6.61259 1.5936,12.82057 4.2998,18.38982 l 157.83492,-5.95354 c 1.647,-4.9421 2.5137,-10.18471 2.5137,-15.67765 0,-27.45717 -22.2879,-49.67897 -49.7451,-49.67897 z"
+       id="path3921-76-3"
+       inkscape:export-filename="C:\Users\idji\Documents\GitHub\match.psychology\img\ani_match_5.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       inkscape:connector-curvature="0"
+       style="fill:#6c5806;fill-opacity:1;stroke:#000000;stroke-width:2.11681366;stroke-opacity:1"
+       d="m -611.94434,10.728962 c -17.8811,0 -33.5104,9.44742 -42.2701,23.6157 -7.682,-7.97389 -18.4824,-12.96548 -30.4292,-12.96548 -23.3238,0 -42.204,18.94631 -42.204,42.27012 0,11.69532 4.7622,22.25938 12.4363,29.9 l 59.337,0.2646 c 1.1768,-1.15032 2.2717,-2.35741 3.3075,-3.63827 0.9753,1.3041 2.0796,2.50355 3.1752,3.70442 l 73.0962,0.33075 c 8.2521,-8.88062 13.2963,-20.73461 13.2963,-33.80287 0,-27.45717 -22.288,-49.67897 -49.7452,-49.67897 z"
+       id="path3921-14-3"
+       inkscape:export-filename="C:\Users\idji\Documents\GitHub\match.psychology\img\ani_match_6.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       inkscape:connector-curvature="0"
+       style="fill:#6c5806;fill-opacity:1;stroke:#000000;stroke-width:2.11681366;stroke-opacity:1"
+       d="m -397.23894,10.736052 c -17.8811,0 -33.5105,9.44742 -42.2701,23.6157 -7.6821,-7.97388 -18.4824,-12.96548 -30.4292,-12.96548 -23.3238,0 -42.204,18.94631 -42.204,42.27013 0,23.32381 18.8802,42.203968 42.204,42.203968 13.2716,0 25.1347,-6.103708 32.8768,-15.677648 9.0662,12.122988 23.5199,19.977428 39.8225,19.977428 27.4572,0 49.7452,-22.287958 49.7452,-49.745128 0,-27.45717 -22.288,-49.67897 -49.7452,-49.67897 z"
+       id="path3921-22-7"
+       inkscape:export-filename="C:\Users\idji\Documents\GitHub\match.psychology\img\ani_match_7.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <g
+       id="g8390"
+       transform="translate(-8.0812203,-206.07112)"
+       inkscape:export-filename="C:\Users\idji\Documents\GitHub\match.psychology\img\match_1.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <g
+         id="g8053"
+         transform="translate(-179.70563,154.35663)">
+        <path
+           inkscape:export-ydpi="29.450001"
+           inkscape:export-xdpi="29.450001"
+           inkscape:export-filename="C:\Users\idji\psychopy\match_0.png"
+           sodipodi:nodetypes="ccccc"
+           inkscape:connector-curvature="0"
+           d="m 158.67194,100.92269 20.79477,24.69181 0,549.52302 -20.79477,-24.69181 z"
+           style="fill:#b99b0a;fill-opacity:1;stroke:#000000;stroke-width:1.25;stroke-linecap:butt;stroke-miterlimit:4;stroke-opacity:1;stroke-dashoffset:0"
+           id="path3846" />
+        <path
+           inkscape:export-ydpi="29.450001"
+           inkscape:export-xdpi="29.450001"
+           inkscape:export-filename="C:\Users\idji\psychopy\match_0.png"
+           sodipodi:nodetypes="ccccc"
+           inkscape:connector-curvature="0"
+           id="rect3033-1"
+           d="m 179.32314,124.86431 34.44671,-10 0,549.52302 -34.44671,10 z"
+           style="fill:#f1e363;fill-opacity:1;stroke:#000000;stroke-width:1.25;stroke-linecap:butt;stroke-miterlimit:4;stroke-opacity:1;stroke-dashoffset:0" />
+        <path
+           style="fill:url(#linearGradient8397);fill-opacity:1;stroke:#000000;stroke-width:1.25;stroke-linecap:butt;stroke-miterlimit:4;stroke-opacity:1;stroke-dashoffset:0"
+           d="m 158.67151,99.481053 0,549.531257 20.78124,24.6875 0,-0.78125 34.3125,-9.96875 0,-549.50001 -34.4375,10 0,0.59375 -20.65624,-24.562497 z"
+           id="path7815"
+           inkscape:connector-curvature="0" />
+        <path
+           inkscape:export-ydpi="29.450001"
+           inkscape:export-xdpi="29.450001"
+           inkscape:export-filename="C:\Users\idji\psychopy\match_0.png"
+           sodipodi:nodetypes="cccc"
+           inkscape:connector-curvature="0"
+           id="path3833"
+           d="m 213.72462,139.21956 c -11.68481,10.8919 -20.63728,13.88312 -34.77612,14.39734 -12.88657,-11.93357 -15.79799,-13.51282 -21.68578,-30.46204 -14.00482,-81.338255 87.4585,-75.089472 56.4619,16.0647 z"
+           style="fill:url(#linearGradient8399);fill-opacity:1;stroke:#000000;stroke-width:1.16539097;stroke-opacity:1" />
+      </g>
     </g>
   </g>
 </svg>

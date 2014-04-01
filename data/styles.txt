@@ -1,0 +1,15 @@
+# style: animated_faster
+anim[]: 2, .05, .05, .05, .05, .05, .05, .05
+image: ../img/blink_1/%i.png
+begin: 2
+
+# style: animated_slower
+anim[]: 2, .15, .15, .15, .15, .15, .15, .15
+image: ../img/blink_1/%i.png
+begin: 1
+
+# style: pulse_grow
+pulse_name: grow
+
+# style: pulse_shrink
+pulse_name: shrink
