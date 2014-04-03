@@ -15,14 +15,15 @@ display  = io.devices.display
 keyboard = io.devices.keyboard
 mouse    = io.devices.mouse
 
-size = map(lambda x: int(x*0.95), display.getPixelResolution())
+size = map(lambda x: int(x*1.0), display.getPixelResolution())
 
 viewScale = map(lambda x: float(x)/min(size), size)
 viewScale.reverse()
 
 win = visual.Window( size
                    , units='pix'
-                   , fullscr=False
+                   , fullscr=True
+                   , winType='pyglet'
                    , screen=1)
 
 oldMouse = event.Mouse()
@@ -36,25 +37,23 @@ imageFiles = [ r'../img/cap_match_1.png'
 
 angles  = [-90, -30, -15, 0, 15, 30, 90]
 
-globalScale     = size[0] / 8
+globalScale     = size[0] / 9
 
-default = { 'scale' : None
-          , 'image' : imageFiles[2]
-          , 'anim'  : None
-          , 'size'  : None
-          , 'pulse' : None
-          , 'begin' : None
-          , 'cycle' : True }
+default = { 'scale'  : None
+          , 'image'  : imageFiles[2]
+          , 'anim'   : None
+          , 'size'   : None
+          , 'pulse'  : None
+          , 'flicker': None
+          , 'begin'  : None
+          , 'cycle'  : True }
 
-animated = { 'scale' : None
-           , 'image' : imageFiles[-1]
-           , 'anim'  : [2.0, .05, .05, .05, .05, .05, .05, .05]
-           , 'cycle' : True
-           , 'size'  : None
-           , 'begin' : None
-           , 'pulse' : None }
+animated = copy(default)
+animated['image'] = imageFiles[-1]
+animated['anim']  = [2.0, .05, .05, .05, .05, .05, .05, .05]
 
 defTask = {'description' : 'Нужно переложить одну спичку.'}
+
 
 def spawn_message(text, position):
     return visual.TextStim( win
@@ -85,7 +84,7 @@ def horizontal(x):
 
 def current_image(style, time=0):
     interval = (style['cycle'] and [2] or [1])[0] * sum(style['anim'])
-    begin = (float(style['begin']) + time) % interval
+    begin = time % interval
     total = 2 * len(style['anim'])
     for index in range(total):
         duration = style['anim'][min(index, total - index - 1)]
@@ -96,18 +95,24 @@ def current_image(style, time=0):
     return style['image'] % index
 
 
-def spawn_match (style, position, angle):
+def spawn_match(style, position, angle):
     if style['scale'] is None:
         style = copy(style)
         style['scale'] = globalScale
 
     if style['anim'] is None:
-        imageName = style['image']
+        begin = random(0, 4)
     else:
-        if style['begin'] is None:
-            style = copy(style)
-            style['begin'] = random(0, 2 * sum(style['anim']))
+        begin = sum(style['anim'])
+
+    if style['begin'] is None:
+        style = copy(style)
+        style['begin'] = begin
+
+    if style['anim'] is not None:
         imageName = current_image(style)
+    else:
+        imageName = style['image']
 
     image = visual.ImageStim( win         = win
                             , name        ='match'
@@ -122,6 +127,7 @@ def spawn_match (style, position, angle):
                             , flipVert    = False
                             , texRes      = 128
                             , interpolate = False)
+
     if style['size'] is None:
         image.size = map(lambda x: x * style['scale'] / max(image.size), image.size)
         style['size'] = image.size
@@ -548,7 +554,7 @@ def read_matches(array, roman=None, solve=None):
 
 
 def pulse_function(time, k):
-    return (1 + k * (sin(time/2) + 2) / (15 * exp(time/20)))
+    return (1 + k * (sin(time) + 2) / (20 * exp(time/20)))
 
 
 def global_scale_pulse(k, size):
@@ -563,18 +569,17 @@ def pulse(k, size):
     return map(lambda x: k * x, size)
 
 
-def pulsate(objects, time):
-    for dict in objects:
-        obj   = dict['match']
-        style = dict['style']
-        obj.setSize(style['pulse'](time, obj.size))
-
-
 def animate(objects, time):
     for dict in objects:
         obj   = dict['match']
         style = dict['style']
-        obj.setImage(current_image(style, time))
+        localTime = float(style['begin']) + time
+        if style.has_key('anim') and style['anim'] is not None:
+            obj.setImage(current_image(style, localTime ))
+        if style.has_key('pulse') and style['pulse'] is not None:
+            obj.setSize(style['pulse'](localTime , obj.size))
+        if style.has_key('flicker') and style['flicker'] is not None:
+            obj.setOpacity(style['flicker'](localTime ))
 
 
 def draw(objects):
@@ -618,8 +623,7 @@ def execute_task(task, setup=None, styleSet=None):
 
     matches         = []
     animatedMatches = []
-    pulsingMatches  = []
-
+    
     expression = translate(task['expression'])
     print(expression)
     styles = []
@@ -642,6 +646,9 @@ def execute_task(task, setup=None, styleSet=None):
         if temp. has_key('pulse_name'):
             temp['pulse'] = pulses[temp['pulse_name']]
 
+        if temp. has_key('flicker_name'):
+            temp['flicker'] = flickers[temp['flicker_name']]
+
         styles.append(temp)
 
     for image, style in spawn_expression( styles
@@ -650,11 +657,10 @@ def execute_task(task, setup=None, styleSet=None):
                                         , size[0]):
         matches.append(image)
 
-        if style['anim'] is not None:
+        if style['anim'] is not None or \
+           style['pulse'] is not None or \
+           style['flicker'] is not None:
             animatedMatches.append({'match' : image, 'style' : style})
-
-        if style['pulse'] is not None:
-            pulsingMatches.append({'match' : image, 'style' : style})
 
     dragged = -1
     unread = True
@@ -678,7 +684,6 @@ def execute_task(task, setup=None, styleSet=None):
 
         time = clock.getTime()
 
-        pulsate(pulsingMatches, time)
         animate(animatedMatches, time)
         draw(matches + [romanMessage, solveMessage, hint])
 
@@ -727,8 +732,12 @@ def split_in_groups(dict, key):
             result[value[key]] = [value]
     return result
 
+
 pulses = { 'grow'   : lambda t, size: global_scale_pulse(pulse_function(t, +0.8), size)
          , 'shrink' : lambda t, size: global_scale_pulse(pulse_function(t, -1.0), size) }
+
+flickers = { 'fast' : lambda t: (sin(t*5) + 2) / 3
+           , 'slow' : lambda t: (sin(t*2) + 2) / 3 }
 
 io.clearEvents('all')
 
@@ -750,6 +759,7 @@ if __name__ == '__main__':
         tasks.append(zip(temp, sets))
 
     success = True
+    shuffle(tasks)
     while success:
         success = False
         for part in tasks:

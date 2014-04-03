@@ -21,3 +21,11 @@ pulse_name: grow
 
 # style: pulse_shrink
 pulse_name: shrink
+
+# style: flick_fast
+flicker_name: fast
+begin: 0
+
+# style: flick_slow
+flicker_name: slow
+begin: 0
