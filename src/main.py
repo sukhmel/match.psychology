@@ -1,13 +1,48 @@
 #!/usr/bin/python
 # coding=utf8
 
+from os.path         import isfile
+from pickle          import dump
 from numpy           import sin, deg2rad, exp
 from copy            import copy, deepcopy
 from numpy.random    import uniform as random
 from random          import sample, shuffle
-from psychopy        import visual, event, core
+from psychopy        import visual, event, core, gui
 from psychopy.iohub  import launchHubServer, EventConstants
 from matplotlib.path import Path as mpl_Path
+
+
+def ask_user():
+    info = {u'имя': '',
+            u'пол': [u'муж',
+                    u'жен'],
+            u'курс': 2,
+            u'версия': 0.9}
+    infoDlg = gui.DlgFromDict(dictionary=info,
+                              title=u'Введите ваши данные',
+                              order=[u'имя',
+                                     u'курс',
+                                     u'пол',
+                                     u'версия'],
+                              fixed=[u'версия'])
+
+    result = dict()
+    if infoDlg.OK:
+        for k in info:
+            if isinstance(info[k], basestring):
+                s = info[k].encode('utf8')
+            else:
+                s = info[k]
+            result[k.encode('utf8')] = s
+        return result
+    else:
+        return None
+
+
+user = ask_user()
+
+if user is None:
+    exit(-1)
 
 io = launchHubServer()
 
@@ -20,8 +55,8 @@ size = map(lambda x: int(x*1.0), display.getPixelResolution())
 viewScale = map(lambda x: float(x)/min(size), size)
 viewScale.reverse()
 
-win = visual.Window( size
-                   , units='pix'
+win = visual.Window( units='pix'
+                   , rgb=[-1, -1, -1]
                    , fullscr=True
                    , winType='pyglet'
                    , screen=1)
@@ -52,7 +87,8 @@ animated = copy(default)
 animated['image'] = imageFiles[-1]
 animated['anim']  = [2.0, .05, .05, .05, .05, .05, .05, .05]
 
-defTask = {'description' : 'Нужно переложить одну спичку.'}
+defTask = { 'description' : 'Нужно переложить один предмет.\nПеретаскивание левой кнопкой мыши,\nповорот правой кнопкой'
+          , 'success'     : 'Верно!'}
 
 
 def spawn_message(text, position):
@@ -99,8 +135,10 @@ def current_image(style, time=0):
 
 
 def spawn_match(style, position, angle):
+    style = copy(style)
+    style['pos'] = position
+
     if style['scale'] is None:
-        style = copy(style)
         style['scale'] = globalScale
 
     if style['anim'] is None:
@@ -572,7 +610,7 @@ def pulse(k, size):
     return map(lambda x: k * x, size)
 
 
-def animate(objects, time):
+def draw(objects, time):
     for dict in objects:
         obj   = dict['match']
         style = dict['style']
@@ -584,9 +622,6 @@ def animate(objects, time):
         if style.has_key('flicker') and style['flicker'] is not None:
             obj.setOpacity(style['flicker'](localTime ))
 
-
-def draw(objects):
-    for obj in objects:
         obj.draw()
 
     win.flip()
@@ -624,11 +659,9 @@ def execute_task(task, setup=None, styleSet=None):
 
     hint = spawn_message(task['description'], (0.0, size[1]/3))
 
-    matches         = []
-    animatedMatches = []
+    matches = []
     
     expression = translate(task['expression'])
-    print(expression)
     styles = []
     for letter in expression:
         if letter.isalnum():
@@ -658,37 +691,35 @@ def execute_task(task, setup=None, styleSet=None):
                                         , expression
                                         , [0, 0]
                                         , size[0]):
-        matches.append(image)
-
-        if style['anim'] is not None or \
-           style['pulse'] is not None or \
-           style['flicker'] is not None:
-            animatedMatches.append({'match' : image, 'style' : style})
+        matches.append({'match' : image, 'style' : style})
 
     dragged = -1
     unread = True
 
     while True:
-        position, posDelta = (oldMouse.getPos(), oldMouse.getRel())  # mouse.getPositionAndDelta()
-        mouse_dX, mouse_dY = posDelta
+        position = oldMouse.getPos()
 
-        left_button, middle_button, right_button = oldMouse.getPressed()  # mouse.getCurrentButtonStates()
+        left_button, middle_button, right_button = oldMouse.getPressed()
 
         if left_button:
             if not dragged < 0:
-                matches[dragged].pos = position
+                matches[dragged]['match'].pos = position
 
         if unread:
-            solved, solution = read_matches(matches, romanMessage, solveMessage)
+            solved, solution = read_matches([m['match'] for m in matches], romanMessage, solveMessage)
             if solved:
-                print(solution)
+                timeTaken = clock.getTime()
+                clock.reset()
+                clock.add(.5)
                 break
             unread = False
 
         time = clock.getTime()
 
-        animate(animatedMatches, time)
-        draw(matches + [romanMessage, solveMessage, hint])
+        romanMessage.draw()
+        solveMessage.draw()
+        hint.draw()
+        draw(matches, time)
 
         kb_events = keyboard.getEvents()
         mouse_events = mouse.getEvents()
@@ -700,16 +731,17 @@ def execute_task(task, setup=None, styleSet=None):
             if evt.type == EventConstants.MOUSE_BUTTON_PRESS:
                 if evt.button_id == 1:
                     for index in range(len(matches)):
-                        if matches[index].contains(position):
+                        if matches[index]['match'].contains(position):
                             dragged = index
+                            reset(matches)
                 if evt.button_id == 2:
                     match = None
                     if not dragged < 0:
-                        match = matches[dragged]
+                        match = matches[dragged]['match']
                     else:
                         for index in range(len(matches)):
-                            if matches[index].contains(position):
-                                match  = matches[index]
+                            if matches[index]['match'].contains(position):
+                                match  = matches[index]['match']
                                 unread = True
                     if match is not None:
                         match.ori = angles[(angles.index(match.ori) + 1) % len(angles)]
@@ -725,6 +757,14 @@ def execute_task(task, setup=None, styleSet=None):
                     io.quit()
                     core.quit()
 
+    hint.setText(task['success'])
+
+    while clock.getTime() < 0:
+        hint.draw()
+        win.flip()
+
+    return [''.join([(a.isalnum() and [a] or [" " + a + " "])[0] for a in expression]), solution, timeTaken]
+
 
 def split_in_groups(dict, key):
     result = {}
@@ -734,6 +774,11 @@ def split_in_groups(dict, key):
         else:
             result[value[key]] = [value]
     return result
+
+
+def reset(array):
+    for object in array:
+        object['match'].pos = object['style']['pos']
 
 
 pulses = { 'grow'   : lambda t, size: global_scale_pulse(pulse_function(t, +0.8), size)
@@ -747,18 +792,23 @@ io.clearEvents('all')
 demo_timeout_start = core.getTime()
 
 if __name__ == '__main__':
-    tests  = load_data('../data/tasks.txt',  'task' , defTask)
+    experiment = dict()
+
+    experiment['user'] = user
+
+    tests = load_data('../data/tasks.txt',    'task', defTask)
     styles = load_data('../data/styles.txt', 'style', default)
     setups = load_data('../data/setups.txt', 'setup', {})
 
     tasks = []
     sets = []
+    result = []
 
     groups = split_in_groups(tests, 'kind')
 
     for g in groups.values():
         temp = sample(g, min(1, len(setups)))
-        sets = sample(setups.values(), min(len(temp), 3))
+        sets = sample(setups.keys(), min(len(temp), 3))
         tasks.append(zip(temp, sets))
 
     success = True
@@ -768,7 +818,23 @@ if __name__ == '__main__':
         for part in tasks:
             try:
                 task, setup = part.pop()
-                execute_task(task, setup, styles)
+                result.append(execute_task(task, setups[setup], styles) + [setup])
                 success = True
             except IndexError:
                 pass
+
+    experiment['result'] = result
+
+    index = 0
+    save = '../res/%i.save'
+    while isfile(save % index):
+        index += 1
+
+    with open(save % index, 'wb') as data:
+        dump(experiment, data)
+
+    for k in user:
+        print("%s : %s" % (k, str(user[k])))
+
+    for unit in result:
+        print ("%s -> %s in %f @ %s" % tuple(unit))

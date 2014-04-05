@@ -1,8 +1,7 @@
-# task
-solution: IV + I = III -> IV = I + III
-expression: 4 + 1 = 3
-kind: operator
-description: Нужно переложить не более двух спичек.
+# template task
+solution:
+expression:
+kind: 
 
 # task
 solution: VI = VII - III -> [VI = IV + II, VI = IX - III]
@@ -18,11 +17,6 @@ kind: number
 solution: L + L = L -> [C - L = L, L + I = LI]
 expression: L + L = L
 kind: op_to_num
-
-# template task
-solution:
-expression:
-kind: 
 
 # task
 solution: I + I = I -> I = I = I

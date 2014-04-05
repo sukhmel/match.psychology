@@ -37,6 +37,6 @@ cycle: 0
 begin: 1
 
 # style: blue_worm
-anim[]: 2, .1, .1, .1, .1, .1, .1, .1, .1, .1
+anim[]: .9, .1, .1, .1, .1, .1, .1, .1, .1, .1
 image: ../img/blue_2/%i.png
 begin: 0.5
