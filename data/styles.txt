@@ -29,3 +29,14 @@ begin: 0
 # style: flick_slow
 flicker_name: slow
 begin: 0
+
+# style: green_worm
+anim[]: 1.5, .05, .05, .05, .05, .05, .05, .05, .05, .05, .05, .05, .05, .05, .05, .05, .05, .05, .05
+image: ../img/green_1/%i.png
+cycle: 0
+begin: 1
+
+# style: blue_worm
+anim[]: 2, .1, .1, .1, .1, .1, .1, .1, .1, .1
+image: ../img/blue_2/%i.png
+begin: 0.5

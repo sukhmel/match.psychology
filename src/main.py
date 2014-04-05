@@ -32,12 +32,12 @@ imageFiles = [ r'../img/cap_match_1.png'
              , r'../img/cap_match_0.png'
              , r'../img/match_1.png'
              , r'../img/match_0.png'
-             , r'../img/ani_match_1_%i.png'
+             , r'../img/blink_1/%i.png'
              ]
 
 angles  = [-90, -30, -15, 0, 15, 30, 90]
 
-globalScale     = size[0] / 9
+globalScale     = size[0] / 8
 
 default = { 'scale'  : None
           , 'image'  : imageFiles[2]
@@ -83,14 +83,17 @@ def horizontal(x):
 
 
 def current_image(style, time=0):
-    interval = (style['cycle'] and [2] or [1])[0] * sum(style['anim'])
+    quotient = (int(style['cycle']) and [2] or [1])[0]
+    interval = quotient * sum(style['anim'])
     begin = time % interval
-    total = 2 * len(style['anim'])
+    total = quotient * len(style['anim'])
     for index in range(total):
-        duration = style['anim'][min(index, total - index - 1)]
-        begin -= duration
+        current = index
+        if quotient != 1:
+            current = min(index, total - index - 1)
+        begin -= style['anim'][current]
         if begin < 0:
-            index = min(index, total - index - 1)
+            index = current
             break
     return style['image'] % index
 
