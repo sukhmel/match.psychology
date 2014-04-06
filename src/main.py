@@ -87,7 +87,8 @@ animated = copy(default)
 animated['image'] = imageFiles[-1]
 animated['anim']  = [2.0, .05, .05, .05, .05, .05, .05, .05]
 
-defTask = { 'description' : 'Нужно переложить один предмет.\nПеретаскивание левой кнопкой мыши,\nповорот правой кнопкой'
+defTask = { 'description' : 'Нужно переложить один предмет.'
+          , 'help' : 'Перетаскивание левой кнопкой мыши, поворот — правой'
           , 'success'     : 'Верно!'}
 
 
@@ -652,12 +653,14 @@ def load_data(filename, kind, default):
 
 
 def execute_task(task, setup=None, styleSet=None):
-    clock = core.Clock()
-
     romanMessage = spawn_message('', (0.0,-(size[1]/4)))
     solveMessage = spawn_message('', (0.0,-(size[1]/3)))
 
     hint = spawn_message(task['description'], (0.0, size[1]/3))
+    help = spawn_message(task['help'], (0.0, size[1]/4))
+
+    clock = core.Clock()
+    clock.reset()
 
     matches = []
     
@@ -719,6 +722,7 @@ def execute_task(task, setup=None, styleSet=None):
         romanMessage.draw()
         solveMessage.draw()
         hint.draw()
+        help.draw()
         draw(matches, time)
 
         kb_events = keyboard.getEvents()
@@ -813,6 +817,23 @@ if __name__ == '__main__':
 
     success = True
     shuffle(tasks)
+
+    intro = ['Ваша задача — как можно быстрее решить головоломку',
+             'решение заключается в перестановке образующих выражение предметов,',
+             'таким образом, чтобы получилось верное выражение.',
+             '',
+             'Можно переставить только указанное число предметов.',
+             'Перетаскивание осуществляется левой кнопкой мыши, поворот — правой.',
+             'Для продолжения нажмите любую клавишу.']
+    text = []
+    for index in range(len(intro)):
+        text.append(spawn_message(intro[index], (0.0,(size[1]/3) - 2.0*size[1]*index/(len(intro) * 3))))
+
+    while len(event.getKeys()) == 0:
+        for one in text:
+            one.draw()
+        win.flip()
+
     while success:
         success = False
         for part in tasks:

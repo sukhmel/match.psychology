@@ -18,17 +18,21 @@ image: ../img/blink_1/%i.png
 
 # style: pulse_grow
 pulse_name: grow
+image: ../img/blue_cylinder.png
 
 # style: pulse_shrink
 pulse_name: shrink
+image: ../img/red_rectangle.png
 
 # style: flick_fast
 flicker_name: fast
 begin: 0
+image: ../img/blue_cylinder.png
 
 # style: flick_slow
 flicker_name: slow
 begin: 0
+image: ../img/red_rectangle.png
 
 # style: green_worm
 anim[]: 1.5, .05, .05, .05, .05, .05, .05, .05, .05, .05, .05, .05, .05, .05, .05, .05, .05, .05, .05
