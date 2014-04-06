@@ -36,11 +36,11 @@ image: ../img/red_rectangle.png
 
 # style: green_worm
 anim[]: 1.5, .05, .05, .05, .05, .05, .05, .05, .05, .05, .05, .05, .05, .05, .05, .05, .05, .05, .05
-image: ../img/green_1/%i.png
+image: ../img/green_4/%i.png
 cycle: 0
 begin: 1
 
 # style: blue_worm
 anim[]: .9, .1, .1, .1, .1, .1, .1, .1, .1, .1
-image: ../img/blue_2/%i.png
+image: ../img/blue_4/%i.png
 begin: 0.5

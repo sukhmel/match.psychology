@@ -196,6 +196,9 @@ $RECYCLE.BIN/
 # PsychoPy iohub
 .iohpid
 
+# saved data
+*.save
+
 *.py[co]
 
 # Packages
