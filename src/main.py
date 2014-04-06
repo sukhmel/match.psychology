@@ -44,6 +44,8 @@ user = ask_user()
 if user is None:
     exit(-1)
 
+debug = False
+
 io = launchHubServer()
 
 display  = io.devices.display
@@ -55,7 +57,8 @@ size = map(lambda x: int(x*1.0), display.getPixelResolution())
 viewScale = map(lambda x: float(x)/min(size), size)
 viewScale.reverse()
 
-win = visual.Window( units='pix'
+win = visual.Window( size
+                   , units='pix'
                    , rgb=[-1, -1, -1]
                    , fullscr=True
                    , winType='pyglet'
@@ -330,8 +333,8 @@ def spawn_expression(style, letters, position, width):
         style = [style] * len(letters)
 
     delta   = 1.0 * width / len(letters)
-    spaces  = [delta / (1 + ('i' in a + b and [.3] or [0])[0]  \
-                          * (       a == b and [5] or [1])[0]) \
+    spaces  = [delta / (1 + ('i' in a + b and [.3] or [0])[0]
+                          * (       a == b and [5] or [1])[0])
                for (a, b) in zip(letters, letters[1:])]
     begin = (width - sum(spaces))/2
     for x in range(len(letters)):
@@ -719,8 +722,10 @@ def execute_task(task, setup=None, styleSet=None):
 
         time = clock.getTime()
 
-        romanMessage.draw()
-        solveMessage.draw()
+        if debug:
+            romanMessage.draw()
+            solveMessage.draw()
+
         hint.draw()
         help.draw()
         draw(matches, time)
@@ -818,16 +823,18 @@ if __name__ == '__main__':
     success = True
     shuffle(tasks)
 
-    intro = ['Ваша задача — как можно быстрее решить головоломку',
-             'решение заключается в перестановке образующих выражение предметов,',
-             'таким образом, чтобы получилось верное выражение.',
+    intro = ['Ваша задача — как можно быстрее решить головоломку, \
+переставив предметы образующие выражение, \
+таким образом, чтобы оно стало верным.',
              '',
              'Можно переставить только указанное число предметов.',
+             'Пропустить текущее задание нельзя.',
+             '[Esc] прекращает эксперимент в любой момент.',
              'Перетаскивание осуществляется левой кнопкой мыши, поворот — правой.',
              'Для продолжения нажмите любую клавишу.']
     text = []
     for index in range(len(intro)):
-        text.append(spawn_message(intro[index], (0.0,(size[1]/3) - 2.0*size[1]*index/(len(intro) * 3))))
+        text.append(spawn_message(intro[index], (0.0,(size[1]/2) - 1.0*size[1]*(index+1)/(len(intro) + 1))))
 
     while len(event.getKeys()) == 0:
         for one in text:
@@ -845,6 +852,15 @@ if __name__ == '__main__':
                 pass
 
     experiment['result'] = result
+    win.close()
+
+    comment = gui.Dlg(title=u'Обратная связь')
+    comment.addField(u'Ваши комментарии', 80*' ', color='blue')
+    comment.show()
+    if comment.OK:
+        experiment['comment'] = comment.data.values()
+    else:
+        experiment['comment'] = None
 
     index = 0
     save = '../res/%i.save'
