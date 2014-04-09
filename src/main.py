@@ -90,9 +90,10 @@ animated = copy(default)
 animated['image'] = imageFiles[-1]
 animated['anim']  = [2.0, .05, .05, .05, .05, .05, .05, .05]
 
-defTask = { 'description' : 'Нужно переложить один предмет.'
-          , 'help' : 'Перетаскивание левой кнопкой мыши, поворот — правой'
-          , 'success'     : 'Верно!'}
+defTask = { 'description': 'Нужно переложить один предмет.'
+          , 'help': 'Перетаскивание левой кнопкой мыши, поворот — правой'
+          , 'success': 'Верно!'
+          , 'setup': None}
 
 
 def spawn_message(text, position):
@@ -599,7 +600,7 @@ def read_matches(array, roman=None, solve=None):
 
 
 def pulse_function(time, k):
-    return (1 + k * (sin(time) + 2) / (20 * exp(time/20)))
+    return (1 + k * (sin(time) + 0) / (10 * exp(time/20)))
 
 
 def global_scale_pulse(k, size):
@@ -790,7 +791,7 @@ def reset(array):
         object['match'].pos = object['style']['pos']
 
 
-pulses = { 'grow'   : lambda t, size: global_scale_pulse(pulse_function(t, +0.8), size)
+pulses = { 'grow'   : lambda t, size: global_scale_pulse(pulse_function(t, +1.0), size)
          , 'shrink' : lambda t, size: global_scale_pulse(pulse_function(t, -1.0), size) }
 
 flickers = { 'fast' : lambda t: (sin(t*5) + 2) / 3
@@ -810,18 +811,17 @@ if __name__ == '__main__':
     setups = load_data('../data/setups.txt', 'setup', {})
 
     tasks = []
-    sets = []
     result = []
 
-    groups = split_in_groups(tests, 'kind')
+    for i in sorted(tests.keys()):
+        if tests[i]['setup'] is None:
+            setup = sample(setups.keys(), 1)[0]
+        else:
+            setup = tests[i]['setup']
+        temp = (tests[i], setup)
+        tasks.append(temp)
 
-    for g in groups.values():
-        temp = sample(g, min(1, len(setups)))
-        sets = sample(setups.keys(), min(len(temp), 3))
-        tasks.append(zip(temp, sets))
-
-    success = True
-    shuffle(tasks)
+    print(tasks)
 
     intro = ['Ваша задача — как можно быстрее решить головоломку, \
 переставив предметы образующие выражение, \
@@ -841,15 +841,8 @@ if __name__ == '__main__':
             one.draw()
         win.flip()
 
-    while success:
-        success = False
-        for part in tasks:
-            try:
-                task, setup = part.pop()
-                result.append(execute_task(task, setups[setup], styles) + [setup])
-                success = True
-            except IndexError:
-                pass
+    for task, setup in tasks:
+        result.append(execute_task(task, setups[setup], styles) + [setup])
 
     experiment['result'] = result
     win.close()
@@ -858,7 +851,7 @@ if __name__ == '__main__':
     comment.addField(u'Ваши комментарии', 80*' ', color='blue')
     comment.show()
     if comment.OK:
-        experiment['comment'] = comment.data.values()
+        experiment['comment'] = comment.data
     else:
         experiment['comment'] = None
 

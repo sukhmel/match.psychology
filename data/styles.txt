@@ -19,10 +19,12 @@ image: ../img/blink_1/%i.png
 # style: pulse_grow
 pulse_name: grow
 image: ../img/blue_cylinder.png
+begin: 0
 
 # style: pulse_shrink
 pulse_name: shrink
 image: ../img/red_rectangle.png
+begin: 0
 
 # style: flick_fast
 flicker_name: fast

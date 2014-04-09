@@ -1,8 +1,8 @@
-# setup: different_ones
+# setup: worms
 number: green_worm
 operator: blue_worm
 
-# setup: shrink_grow
+# setup: pulse
 number: pulse_shrink
 operator: pulse_grow
 
