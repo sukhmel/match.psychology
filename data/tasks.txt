@@ -1,3 +1,11 @@
+# task 0
+solution: I + IV + X = XV
+expression: X X X X = VI
+kind: intro
+setup: normal
+amount: 10
+description: Переложите до 8 спичек и составьте выражение I + X - V = VI
+
 # task 1
 solution: X + V = IV -> [IX - V = IV, X - VI = IV]
 expression: 10 + 5 = 4

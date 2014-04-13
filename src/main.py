@@ -14,6 +14,7 @@ from matplotlib.path import Path as mpl_Path
 
 def ask_user():
     info = {u'имя': '',
+            u'возраст': 18,
             u'пол': [u'муж',
                     u'жен'],
             u'курс': 2,
@@ -21,6 +22,7 @@ def ask_user():
     infoDlg = gui.DlgFromDict(dictionary=info,
                               title=u'Введите ваши данные',
                               order=[u'имя',
+                                     u'возраст',
                                      u'курс',
                                      u'пол',
                                      u'версия'],
@@ -93,6 +95,7 @@ animated['anim']  = [2.0, .05, .05, .05, .05, .05, .05, .05]
 defTask = { 'description': 'Нужно переложить один предмет.'
           , 'help': 'Перетаскивание левой кнопкой мыши, поворот — правой'
           , 'success': 'Верно!'
+          , 'amount': 1
           , 'setup': None}
 
 
@@ -142,6 +145,7 @@ def current_image(style, time=0):
 def spawn_match(style, position, angle):
     style = copy(style)
     style['pos'] = position
+    style['ori'] = angle
 
     if style['scale'] is None:
         style['scale'] = globalScale
@@ -514,6 +518,7 @@ def recognize(list):
 
                 if v_c == 0 and h_c == 2:
                     result = " = "
+                    position = (list[0].pos + list[1].pos)/2
 
                 if v_c == 1 and h_c == 1:
                     if abs(v.pos[1] - h.pos[1]) < epsilon and \
@@ -533,8 +538,7 @@ def recognize(list):
                abs(normalize(list[0].ori)) == abs(normalize(list[1].ori)) and \
                abs(list[0].pos[0] - list[1].pos[0]) < epsilon:
                 result = (closed and ["D"] or ["C"])[0]
-                position = [ (list[1].pos[0] + list[0].pos[0]) / 2
-                           , (list[1].pos[1] + list[0].pos[1]) / 2]
+                position = (list[1].pos + list[0].pos) / 2
 
         if length == 4:
             list = remove(lambda x: x.ori == 0, list)
@@ -586,6 +590,17 @@ def read_matches(array, roman=None, solve=None):
         roman.setText(recognized)
     if solve is not None:
         solve.setText(normalized)
+
+    ys = sorted(map(lambda x: x[1][1], decision))
+    if len(ys) > 2:
+        inner = ys[1:-1]
+        mean = sum(inner)/len(inner)
+        delta = max(map(lambda x: abs(x - mean), inner))
+        differ = max(abs(ys[0] - mean), abs(ys[-1] - mean))
+        if differ > delta + 20:
+            resolved = False
+    else:
+        resolved = False
 
     try:
         if len(really) > 1:
@@ -662,6 +677,14 @@ def execute_task(task, setup=None, styleSet=None):
 
     hint = spawn_message(task['description'], (0.0, size[1]/3))
     help = spawn_message(task['help'], (0.0, size[1]/4))
+    sample = spawn_message('Образец:', (0.0, -size[1]/4))
+
+    numerals = visual.ImageStim( win         = win
+                               , name        ='numerals'
+                               , image       = '../img/help.png'
+                               , pos         = (0.0, -1.2*size[1]/3))
+
+    numerals.size = 0.7*globalScale*numerals.size/min(numerals.size)
 
     clock = core.Clock()
     clock.reset()
@@ -729,6 +752,8 @@ def execute_task(task, setup=None, styleSet=None):
 
         hint.draw()
         help.draw()
+        sample.draw()
+        numerals.draw()
         draw(matches, time)
 
         kb_events = keyboard.getEvents()
@@ -742,8 +767,9 @@ def execute_task(task, setup=None, styleSet=None):
                 if evt.button_id == 1:
                     for index in range(len(matches)):
                         if matches[index]['match'].contains(position):
+                            reset(matches, int(task['amount']) - 1)
                             dragged = index
-                            reset(matches)
+
                 if evt.button_id == 2:
                     match = None
                     if not dragged < 0:
@@ -755,6 +781,7 @@ def execute_task(task, setup=None, styleSet=None):
                                 unread = True
                     if match is not None:
                         match.ori = angles[(angles.index(match.ori) + 1) % len(angles)]
+                        reset(matches, int(task['amount']), match)
 
             if evt.type == EventConstants.MOUSE_BUTTON_RELEASE:
                 if evt.button_id == 1:
@@ -786,9 +813,20 @@ def split_in_groups(dict, key):
     return result
 
 
-def reset(array):
+def reset(array, amount, but=None):
+    resetted = []
     for object in array:
-        object['match'].pos = object['style']['pos']
+        match = object['match']
+        style = object['style']
+        if match.pos[0] != style['pos'][0] or \
+           match.pos[1] != style['pos'][1] or \
+           match.ori != style['ori']:
+            resetted.append((match, style))
+    if len(resetted) > amount:
+        for match, style in resetted:
+            if match is not but:
+                match.pos = style['pos']
+                match.ori = style['ori']
 
 
 pulses = { 'grow'   : lambda t, size: global_scale_pulse(pulse_function(t, +1.0), size)
@@ -800,6 +838,20 @@ flickers = { 'fast' : lambda t: (sin(t*5) + 2) / 3
 io.clearEvents('all')
 
 demo_timeout_start = core.getTime()
+
+
+def inform(what):
+    lines = (what + '#Для продолжения нажмите любую клавишу.').split('#')
+    text = []
+    length = len(lines)
+    for index in range(length):
+        text.append(spawn_message(lines[index], (0.0, (size[1] / 2) - 1.0 * size[1] * (index + 1) / (length + 1))))
+
+    while len(event.getKeys()) == 0 and not any(oldMouse.getPressed()):
+        for one in text:
+            one.draw()
+        win.flip()
+
 
 if __name__ == '__main__':
     experiment = dict()
@@ -821,28 +873,31 @@ if __name__ == '__main__':
         temp = (tests[i], setup)
         tasks.append(temp)
 
-    print(tasks)
+    inform('Ваша задача — как можно быстрее решить головоломку, переставив \
+предметы образующие выражение, таким образом, чтобы равенство стало верным.##Можно \
+переставить только указанное число предметов.#Пропустить текущее задание \
+нельзя.#[Esc] прекращает эксперимент в любой момент.#Перетаскивание \
+осуществляется левой кнопкой мыши, поворот — правой, в том числе во время \
+перетаскивания.')
 
-    intro = ['Ваша задача — как можно быстрее решить головоломку, \
-переставив предметы образующие выражение, \
-таким образом, чтобы оно стало верным.',
-             '',
-             'Можно переставить только указанное число предметов.',
-             'Пропустить текущее задание нельзя.',
-             '[Esc] прекращает эксперимент в любой момент.',
-             'Перетаскивание осуществляется левой кнопкой мыши, поворот — правой.',
-             'Для продолжения нажмите любую клавишу.']
-    text = []
-    for index in range(len(intro)):
-        text.append(spawn_message(intro[index], (0.0,(size[1]/2) - 1.0*size[1]*(index+1)/(len(intro) + 1))))
+    inform('В задачах используются только операторы сложения и вычитания.#\
+Переложить можно любой предмет и в любое место.#Первое задание — для \
+ознакомления с управлением.')
 
-    while len(event.getKeys()) == 0:
-        for one in text:
-            one.draw()
-        win.flip()
+    execute_task(tasks[0][0], setups[tasks[0][1]], styles)
 
-    for task, setup in tasks:
+    inform('Вы приступаете к основной части эксперимента.#Далее идут задания.')
+
+    for task, setup in tasks[1:]:
         result.append(execute_task(task, setups[setup], styles) + [setup])
+
+    time = 0
+    try:
+        time = sum(map(lambda x: x[2], result))
+    except:
+        pass
+
+    inform('Поздравляем, вы завершили эксперимент. Затраченное время: %f' % time)
 
     experiment['result'] = result
     win.close()
