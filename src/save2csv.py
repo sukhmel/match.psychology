@@ -4,8 +4,11 @@ import pickle
 
 i = 4
 result = [['"имя"', '"возраст"', '"№"', '"эффект"',
-           '"задание"', '"решение"', '"тип"', '',
+           '"задание"', '"решение"', '"тип"', '"время"',
            '"отношение"', '"курс"', '"пол"', '"комментарий"']]
+
+lines = [['"имя"', '"возраст"', '"курс"', '"пол"', '"комментарий"'] + ['"№"', '"эффект"',
+           '"задание"', '"решение"', '"тип"', '"время"', '"отношение"']*8]
 
 def try_append(src, dst, key):
     try:
@@ -23,25 +26,34 @@ if len(sys.argv) < 2:
             if name.endswith('.save'):
                 with open(os.path.join(root, name), 'rb') as input:
                     temp = []
+                    info = []
                     data = pickle.load(input, encoding='utf8')
-                    try_append(data['user'], temp, u'имя')
-                    try_append(data['user'], temp, u'возраст')
+                    try_append(data['user'], info, u'имя')
+                    try_append(data['user'], info, u'возраст')
+                    try_append(data['user'], info, u'курс')
+                    try_append(data['user'], info, u'пол')
+                    try_append(data, info, 'comment')
+
+                    temp.extend(info[:2])
                     temp.extend(['','','','','','',''])
-                    try_append(data['user'], temp, u'курс')
-                    try_append(data['user'], temp, u'пол')
-                    try_append(data, temp, 'comment')
+                    temp.extend(info[2:])
                     result.append(temp)
                     for index in range(len(data['result'])):
                         temp = []
                         line = data['result'][index]
+                        info.append(str(index+1))
+                        info.append('"' + line[3] + '"')
+                        info.append('"' + line[0] + '"')
+                        info.append('"' + line[1] + '"')
+                        info.append('')
+                        info.append(str(line[2]))
+                        info.append('')
                         temp.extend(['',''])
-                        temp.append(str(index+1))
-                        temp.append('"' + line[3] + '"')
-                        temp.append('"' + line[0] + '"')
-                        temp.append('"' + line[1] + '"')
-                        temp.append('')
-                        temp.append(str(line[2]))#.replace('.',',')
+                        temp.extend(info[-7:])
                         result.append(temp)
+                    lines.append(info)
 
-with open('../res/res.csv', 'w') as output:
+with open('../res/tables.csv', 'w') as output:
     output.write('\n'.join(map(';'.join, result)))
+with open('../res/lines.csv', 'w') as output:
+    output.write('\n'.join(map(';'.join, lines)))
