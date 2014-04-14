@@ -18,7 +18,7 @@ def ask_user():
             u'пол': [u'муж',
                     u'жен'],
             u'курс': 2,
-            u'версия': 0.9}
+            u'версия': 0.92}
     infoDlg = gui.DlgFromDict(dictionary=info,
                               title=u'Введите ваши данные',
                               order=[u'имя',
@@ -518,7 +518,7 @@ def recognize(list):
 
                 if v_c == 0 and h_c == 2:
                     result = " = "
-                    position = (list[0].pos + list[1].pos)/2
+                    position[1] = min([list[0].pos[1], list[1].pos[1], (list[0].pos[1] + list[1].pos[1])/2])
 
                 if v_c == 1 and h_c == 1:
                     if abs(v.pos[1] - h.pos[1]) < epsilon and \
@@ -897,7 +897,7 @@ if __name__ == '__main__':
     except:
         pass
 
-    inform('Поздравляем, вы завершили эксперимент. Затраченное время: %f' % time)
+    inform('Поздравляем, вы завершили эксперимент. Затраченное время: %2.2f секунд' % time)
 
     experiment['result'] = result
     win.close()
@@ -906,7 +906,7 @@ if __name__ == '__main__':
     comment.addField(u'Ваши комментарии', 80*' ', color='blue')
     comment.show()
     if comment.OK:
-        experiment['comment'] = comment.data
+        experiment['comment'] = comment.data[0].strip()
     else:
         experiment['comment'] = None
 

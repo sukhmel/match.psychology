@@ -198,6 +198,7 @@ $RECYCLE.BIN/
 
 # saved data
 *.save
+*.csv
 
 *.py[co]
 
