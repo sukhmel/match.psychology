@@ -64,7 +64,7 @@ win = visual.Window( size
                    , rgb=[-1, -1, -1]
                    , fullscr=True
                    , winType='pyglet'
-                   , screen=1)
+                   , screen=0)
 
 oldMouse = event.Mouse()
 
@@ -514,11 +514,11 @@ def recognize(list):
                     h_c += 1
 
                 if h_c != 0:
-                    position = h.pos
+                    position = copy(h.pos)
 
                 if v_c == 0 and h_c == 2:
                     result = " = "
-                    position[1] = min([list[0].pos[1], list[1].pos[1], (list[0].pos[1] + list[1].pos[1])/2])
+                    position[1] = min(map(abs,[list[0].pos[1], list[1].pos[1], (list[0].pos[1] + list[1].pos[1])/2]))
 
                 if v_c == 1 and h_c == 1:
                     if abs(v.pos[1] - h.pos[1]) < epsilon and \
@@ -597,7 +597,7 @@ def read_matches(array, roman=None, solve=None):
         mean = sum(inner)/len(inner)
         delta = max(map(lambda x: abs(x - mean), inner))
         differ = max(abs(ys[0] - mean), abs(ys[-1] - mean))
-        if differ > delta + 20:
+        if differ > delta + globalScale/5:
             resolved = False
     else:
         resolved = False
@@ -851,6 +851,9 @@ def inform(what):
         for one in text:
             one.draw()
         win.flip()
+
+    while any(oldMouse.getPressed()):
+        event.clearEvents()
 
 
 if __name__ == '__main__':
