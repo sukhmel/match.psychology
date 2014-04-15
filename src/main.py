@@ -1,6 +1,8 @@
 #!/usr/bin/python
 # coding=utf8
 
+import inspect
+
 from os.path         import isfile
 from pickle          import dump
 from numpy           import sin, deg2rad, exp
@@ -552,19 +554,7 @@ def recognize(list):
     return (result, position)
 
 
-def read_matches(array, roman=None, solve=None):
-    resolved = True
-
-    decision = []
-    for s in decompose(array):
-        try:
-            thing = recognize(list(s))
-            decision.append(thing)
-            if len(thing[0]) == 0:
-                resolved = False
-        except Exception as e:
-            print(e.message)
-    recognized = ''.join(map(lambda x: x[0], sorted(decision, key=lambda x: x[1][0])))
+def normalize_matches(recognized):
     normalized = []
     for part in recognized.strip().split(' '):
         if part.isalpha():
@@ -586,10 +576,24 @@ def read_matches(array, roman=None, solve=None):
 
     normalized += ' (%s)' % ' = '.join(really)
 
-    if roman is not None:
-        roman.setText(recognized)
-    if solve is not None:
-        solve.setText(normalized)
+    return (normalized, really)
+
+
+def read_matches(array):
+    resolved = True
+
+    decision = []
+    for s in decompose(array):
+        try:
+            thing = recognize(list(s))
+            decision.append(thing)
+            if len(thing[0]) == 0:
+                resolved = False
+        except Exception as e:
+            print(e.message)
+    recognized = ''.join(map(lambda x: x[0], sorted(decision, key=lambda x: x[1][0])))
+
+    normalized, really = normalize_matches(recognized)
 
     ys = sorted(map(lambda x: x[1][1], decision))
     if len(ys) > 2:
@@ -611,7 +615,7 @@ def read_matches(array, roman=None, solve=None):
     except ValueError:
         resolved = False
 
-    return (resolved, recognized)
+    return (resolved, recognized, normalized)
 
 
 def pulse_function(time, k):
@@ -657,11 +661,13 @@ def load_data(filename, kind, default):
                     for line in lines[1:]:
                         if line != '':
                             name, content = line.split(':')
-                            if '[]' in name:
+                            if '[f]' in name:
                                 content = map(float, content.split(','))
+                            elif '[s]' in name:
+                                content = map(lambda x: x.strip(), content.split(','))
                             else:
                                 content = content.strip()
-                            into[name.strip('[]')] = content
+                            into[name.split('[')[0]] = content
 
                     if ':' in lines[0]:
                         result[lines[0].split(':')[1].strip()] = into
@@ -671,26 +677,7 @@ def load_data(filename, kind, default):
     return result
 
 
-def execute_task(task, setup=None, styleSet=None):
-    romanMessage = spawn_message('', (0.0,-(size[1]/4)))
-    solveMessage = spawn_message('', (0.0,-(size[1]/3)))
-
-    hint = spawn_message(task['description'], (0.0, size[1]/3))
-    help = spawn_message(task['help'], (0.0, size[1]/4))
-    sample = spawn_message('Образец:', (0.0, -size[1]/4))
-
-    numerals = visual.ImageStim( win         = win
-                               , name        ='numerals'
-                               , image       = '../img/help.png'
-                               , pos         = (0.0, -1.2*size[1]/3))
-
-    numerals.size = 0.7*globalScale*numerals.size/min(numerals.size)
-
-    clock = core.Clock()
-    clock.reset()
-
-    matches = []
-    
+def prepare_matches(matches, setup, styleSet, task):
     expression = translate(task['expression'])
     styles = []
     for letter in expression:
@@ -709,51 +696,79 @@ def execute_task(task, setup=None, styleSet=None):
                     if styles.has_key('default'):
                         temp = copy(styleSet['default'])
 
-        if temp. has_key('pulse_name'):
+        if temp.has_key('pulse_name'):
             temp['pulse'] = pulses[temp['pulse_name']]
 
-        if temp. has_key('flicker_name'):
+        if temp.has_key('flicker_name'):
             temp['flicker'] = flickers[temp['flicker_name']]
 
         styles.append(temp)
+    for image, style in spawn_expression(styles
+            , expression
+            , [0, 0]
+            , size[0]):
+        matches.append({'match': image, 'style': style})
 
-    for image, style in spawn_expression( styles
-                                        , expression
-                                        , [0, 0]
-                                        , size[0]):
-        matches.append({'match' : image, 'style' : style})
+    return expression
 
-    dragged = -1
-    unread = True
 
-    while True:
-        position = oldMouse.getPos()
+def test_solution(solution):
+    normalized, really = normalize_matches(solution)
+    resolved = len(really) > 1
 
-        left_button, middle_button, right_button = oldMouse.getPressed()
+    if resolved:
+        for statement in really:
+            resolved &= int(really[0]) == int(statement)
 
-        if left_button:
-            if not dragged < 0:
-                matches[dragged]['match'].pos = position
+    return resolved
 
-        if unread:
-            solved, solution = read_matches([m['match'] for m in matches], romanMessage, solveMessage)
-            if solved:
-                timeTaken = clock.getTime()
-                clock.reset()
-                clock.add(.5)
-                break
-            unread = False
 
+def compare(expression, solution):
+    ok = True
+    amount = 0
+    source = expression.split()
+    result = solution.split()
+    for index in range(len(source)):
+        a = source[index]
+        b = result[index]
+        if a != b:
+            if len(a) == len(b):
+                pass
+    raise "not implemented"
+
+
+def execute_task(task, setup=None, styleSet=None):
+    spent = 0
+    resolved = False
+    solution = ''
+    input_timer = core.Clock()
+
+    romanMessage = spawn_message('', (0.0,-(size[1]/4)))
+    solveMessage = spawn_message('', (0.0,-(size[1]/3)))
+
+    hint = spawn_message(task['description'], (0.0, size[1]/3))
+    help = spawn_message(task['help'], (0.0, size[1]/4))
+
+    clock = core.Clock()
+    clock.reset()
+
+    matches = []
+
+    expression = prepare_matches(matches, setup, styleSet, task)
+
+    print(task['solution'])
+
+    while not resolved:
         time = clock.getTime()
 
         if debug:
-            romanMessage.draw()
             solveMessage.draw()
+
+        romanMessage.setText(solution)
+        romanMessage.draw()
 
         hint.draw()
         help.draw()
-        sample.draw()
-        numerals.draw()
         draw(matches, time)
 
         kb_events = keyboard.getEvents()
@@ -762,45 +777,45 @@ def execute_task(task, setup=None, styleSet=None):
         io.clearEvents()
         event.clearEvents()
 
-        for evt in mouse_events:
-            if evt.type == EventConstants.MOUSE_BUTTON_PRESS:
-                if evt.button_id == 1:
-                    for index in range(len(matches)):
-                        if matches[index]['match'].contains(position):
-                            reset(matches, int(task['amount']) - 1)
-                            dragged = index
-
-                if evt.button_id == 2:
-                    match = None
-                    if not dragged < 0:
-                        match = matches[dragged]['match']
-                    else:
-                        for index in range(len(matches)):
-                            if matches[index]['match'].contains(position):
-                                match  = matches[index]['match']
-                                unread = True
-                    if match is not None:
-                        match.ori = angles[(angles.index(match.ori) + 1) % len(angles)]
-                        reset(matches, int(task['amount']), match)
-
-            if evt.type == EventConstants.MOUSE_BUTTON_RELEASE:
-                if evt.button_id == 1:
-                    dragged = -1
-                    unread = True
-
         for evt in kb_events:
             if evt.type == EventConstants.KEYBOARD_PRESS:
                 if evt.key_id == 27:  # Escape
                     io.quit()
                     core.quit()
 
-    hint.setText(task['success'])
+                start = solution == ''
 
-    while clock.getTime() < 0:
-        hint.draw()
-        win.flip()
+                if evt.key.lower() in u"ivxlcdm-+=":
+                    if solution[-1:].isalpha() != evt.key.isalpha():
+                        solution += u" "
+                    solution += evt.key.upper()
 
-    return [''.join([(a.isalnum() and [a] or [" " + a + " "])[0] for a in expression]), solution, timeTaken]
+                if evt.key_id == 13: # Enter
+                    print(solution in task['solution'])
+                    resolved = solution in task['solution']
+                    if not resolved:
+                        solution = ''
+
+                if evt.key_id == 35:
+                    resolved = True
+
+                if evt.key_id == 8: # Backspace
+                    solution = solution[:-1].strip()
+
+                if solution != '' and start:
+                    input_timer.reset()
+
+                if solution == '' and not start or resolved:
+                    spent -= input_timer.getTime()
+
+                if resolved:
+                    spent += clock.getTime()
+
+    inform(task['success'])
+
+    result = [''.join([(a.isalnum() and [a] or [" " + a + " "])[0] for a in expression]), solution, spent]
+    print(result)
+    return result
 
 
 def split_in_groups(dict, key):
@@ -852,7 +867,11 @@ def inform(what):
             one.draw()
         win.flip()
 
-    while any(oldMouse.getPressed()):
+    if 'escape' in event.getKeys():
+        io.quit()
+        core.quit()
+
+    while any(oldMouse.getPressed()) or len(event.getKeys()) != 0:
         event.clearEvents()
 
 
@@ -879,19 +898,10 @@ if __name__ == '__main__':
     inform('Ваша задача — как можно быстрее решить головоломку, переставив \
 предметы, образующие выражение, таким образом, чтобы равенство стало верным.##Можно \
 переставить только указанное число предметов.#Пропустить текущее задание \
-нельзя.#[Esc] прекращает эксперимент в любой момент.#Перетаскивание \
-осуществляется левой кнопкой мыши, поворот — правой, в том числе во время \
-перетаскивания.')
+нельзя.#[Esc] прекращает эксперимент в любой момент.#В задачах используются только \
+операторы сложения и вычитания.')
 
-    inform('В задачах используются только операторы сложения и вычитания.#\
-Переложить можно любой предмет и в любое место.#Первое задание — для \
-ознакомления с управлением.')
-
-    execute_task(tasks[0][0], setups[tasks[0][1]], styles)
-
-    inform('Вы приступаете к основной части эксперимента.#Далее идут задания.')
-
-    for task, setup in tasks[1:]:
+    for task, setup in tasks:
         result.append(execute_task(task, setups[setup], styles) + [setup])
 
     time = 0

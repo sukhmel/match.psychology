@@ -1,47 +1,47 @@
 # task 1
-solution: X + V = IV -> [IX - V = IV, X - VI = IV]
-expression: 10 + 5 = 4
+solution[s]: IX - V = IV, X - VI = IV
+expression: X + V = IV
 kind: op_to_num
 setup: pulse
 
 # task 2
-solution: IX - IX = V -> IX - IV = V
-expression: 9 - 9 = 5
+solution[s]: IX - IV = V
+expression: IX - IX = V
 kind: number
 setup: normal
 
 # task 3
-solution: L + L = L -> [C - L = L, L + I = LI]
+solution[s]: C - L = L, L + I = LI, I + L = LI, L = L = L
 expression: L + L = L
 kind: op_to_num
 setup: worms
 
 # task 4
-solution: X = VIII - II -> X - VIII = II
-expression: 10 = 8 - 2
+solution[s]: X - VIII = II
+expression: X = VIII - II
 kind: operator
 setup: pulse
 
 # task 5
-solution: II - II = III -> II = II = II
-expression: 2 - 2 = 3
+solution[s]: II = II = II
+expression: II - II = III
 kind: num_to_op
 setup: flicker
 
 # task 6
-solution: XI - V = IV -> [X - VI = IV, XI - V = VI, XI - VI = V]
-expression: 11 - 5 = 4
+solution[s]: X - VI = IV, XI - V = VI, XI - VI = V, IX - V = IV
+expression: XI - V = IV
 kind: number
 setup: worms
 
 # task 7
-solution: VI = IV - III -> [VI = IV + II, VI = IX - III]
-expression: 6 = 4 - 3
+solution[s]: VI = IV + II, VI = IX - III
+expression: VI = IV - III
 kind: num_to_op
 setup: normal
 
 # task 8
-solution: II + II = II -> [I + II = III, II = II = II]
-expression: 2 + 2 = 2
+solution[s]: I + II = III, II = II = II
+expression: II + II = II
 kind: number
 setup: flicker
