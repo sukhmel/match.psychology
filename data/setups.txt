@@ -9,5 +9,3 @@ operator: pulse_grow
 # setup: flicker
 number: flick_slow
 operator: flick_fast
-
-# setup: normal

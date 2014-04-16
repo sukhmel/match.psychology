@@ -1,47 +1,42 @@
-# task 1
-solution[s]: IX - V = IV, X - VI = IV
-expression: X + V = IV
-kind: op_to_num
-setup: pulse
-
-# task 2
+# task : 3
 solution[s]: IX - IV = V
 expression: IX - IX = V
 kind: number
-setup: normal
 
-# task 3
-solution[s]: C - L = L, L + I = LI, I + L = LI, L = L = L
-expression: L + L = L
-kind: op_to_num
-setup: worms
-
-# task 4
+# task : 8
 solution[s]: X - VIII = II
 expression: X = VIII - II
 kind: operator
-setup: pulse
 
-# task 5
+# task : 5
 solution[s]: II = II = II
 expression: II - II = III
 kind: num_to_op
-setup: flicker
+setup[s]: flicker, worms, pulse
 
-# task 6
+# task : 1
 solution[s]: X - VI = IV, XI - V = VI, XI - VI = V, IX - V = IV
 expression: XI - V = IV
 kind: number
-setup: worms
 
-# task 7
+# task : 4
 solution[s]: VI = IV + II, VI = IX - III
 expression: VI = IV - III
 kind: num_to_op
-setup: normal
+setup[s]: flicker, worms, pulse
 
-# task 8
+# task : 2
 solution[s]: I + II = III, II = II = II
 expression: II + II = II
 kind: number
-setup: flicker
+
+# task : 6
+solution[s]: XV + V = XX
+expression: XIV - V = XX
+kind: op_to_num
+setup[s]: flicker, worms, pulse
+
+# task : 7
+solution[s]: I = I = I, II - I = I
+expression: I + I = I
+kind: operator

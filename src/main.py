@@ -756,8 +756,6 @@ def execute_task(task, setup=None, styleSet=None):
 
     expression = prepare_matches(matches, setup, styleSet, task)
 
-    print(task['solution'])
-
     while not resolved:
         time = clock.getTime()
 
@@ -791,8 +789,7 @@ def execute_task(task, setup=None, styleSet=None):
                     solution += evt.key.upper()
 
                 if evt.key_id == 13: # Enter
-                    print(solution in task['solution'])
-                    resolved = solution in task['solution']
+                    resolved = solution.decode().strip() in task['solution']
                     if not resolved:
                         solution = ''
 
@@ -814,7 +811,7 @@ def execute_task(task, setup=None, styleSet=None):
     inform(task['success'])
 
     result = [''.join([(a.isalnum() and [a] or [" " + a + " "])[0] for a in expression]), solution, spent]
-    print(result)
+
     return result
 
 
@@ -876,6 +873,8 @@ def inform(what):
 
 
 if __name__ == '__main__':
+    seed = int(random(1, 100))
+
     experiment = dict()
 
     experiment['user'] = user
@@ -883,15 +882,21 @@ if __name__ == '__main__':
     tests = load_data('../data/tasks.txt',    'task', defTask)
     styles = load_data('../data/styles.txt', 'style', default)
     setups = load_data('../data/setups.txt', 'setup', {})
+    setups['default'] = None
 
     tasks = []
     result = []
 
     for i in sorted(tests.keys()):
         if tests[i]['setup'] is None:
+            setup = 'default'
+        elif tests[i]['setup'] is 'random':
             setup = sample(setups.keys(), 1)[0]
-        else:
+        elif isinstance(tests[i]['setup'], basestring):
             setup = tests[i]['setup']
+        else:
+            setup = tests[i]['setup'][seed % len(tests[i]['setup'])]
+
         temp = (tests[i], setup)
         tasks.append(temp)
 
