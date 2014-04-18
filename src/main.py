@@ -1,9 +1,7 @@
 #!/usr/bin/python
 # coding=utf8
 
-import inspect
-
-from os.path         import isfile
+from os.path         import isfile, walk
 from pickle          import dump
 from numpy           import sin, deg2rad, exp
 from copy            import copy, deepcopy
@@ -94,8 +92,8 @@ animated = copy(default)
 animated['image'] = imageFiles[-1]
 animated['anim']  = [2.0, .05, .05, .05, .05, .05, .05, .05]
 
-defTask = { 'description': 'Нужно переложить один предмет.'
-          , 'help': 'Перетаскивание левой кнопкой мыши, поворот — правой'
+defTask = { 'description': 'Нужно переложить одну спичку.'
+          , 'help': 'I = 1, V = 5, X = 10, L = 50, C = 100, D = 500, M = 1000'
           , 'success': 'Верно!'
           , 'amount': 1
           , 'setup': None}
@@ -770,7 +768,6 @@ def execute_task(task, setup=None, styleSet=None):
         draw(matches, time)
 
         kb_events = keyboard.getEvents()
-        mouse_events = mouse.getEvents()
 
         io.clearEvents()
         event.clearEvents()
@@ -802,7 +799,7 @@ def execute_task(task, setup=None, styleSet=None):
                 if solution != '' and start:
                     input_timer.reset()
 
-                if solution == '' and not start or resolved:
+                if (solution == '' and not start) or resolved:
                     spent -= input_timer.getTime()
 
                 if resolved:
@@ -873,7 +870,7 @@ def inform(what):
 
 
 if __name__ == '__main__':
-    seed = int(random(1, 100))
+    seed = len(walk('../res/'))
 
     experiment = dict()
 
@@ -900,11 +897,13 @@ if __name__ == '__main__':
         temp = (tests[i], setup)
         tasks.append(temp)
 
-    inform('Ваша задача — как можно быстрее решить головоломку, переставив \
-предметы, образующие выражение, таким образом, чтобы равенство стало верным.##Можно \
-переставить только указанное число предметов.#Пропустить текущее задание \
-нельзя.#[Esc] прекращает эксперимент в любой момент.#В задачах используются только \
+    inform('Ваша задача — как можно быстрее решить головоломку, мысленно переставив \
+одну из спичек, образующие выражение, таким образом, чтобы получилось верное равенство.#\
+После того, как вы нашли решение, введите его с клавиатуры и нажмите [Enter].#Если решение \
+неверно, введённый текст будет стёрт и ввод решения следует начать заново.#В задачах используются только \
 операторы сложения и вычитания.')
+
+    inform('Пропустить текущее задание нельзя.#[Esc] прекращает эксперимент в любой момент.')
 
     for task, setup in tasks:
         result.append(execute_task(task, setups[setup], styles) + [setup])
@@ -915,7 +914,8 @@ if __name__ == '__main__':
     except:
         pass
 
-    inform('Поздравляем, вы завершили эксперимент. Затраченное время: %2.2f секунд' % time)
+    inform('Поздравляем, %s, вы завершили эксперимент за %i минут %2.2f секунд.' %
+           (user['имя'], int(time/60), time % 60))
 
     experiment['result'] = result
     win.close()
