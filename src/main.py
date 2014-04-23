@@ -1,7 +1,8 @@
 #!/usr/bin/python
 # coding=utf8
 
-from os.path         import isfile, walk
+from os              import listdir as walk
+from os.path         import isfile
 from pickle          import dump
 from numpy           import sin, deg2rad, exp
 from copy            import copy, deepcopy
@@ -870,7 +871,7 @@ def inform(what):
 
 
 if __name__ == '__main__':
-    seed = len(walk('../res/'))
+    seed = len(list(walk('../res/')))
 
     experiment = dict()
 

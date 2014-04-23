@@ -12,7 +12,7 @@ kind: operator
 solution[s]: II = II = II
 expression: II - II = III
 kind: num_to_op
-setup[s]: flicker, worms, pulse
+setup[s]: flicker, default, worms, pulse
 
 # task : 1
 solution[s]: X - VI = IV, XI - V = VI, XI - VI = V, IX - V = IV
@@ -23,7 +23,7 @@ kind: number
 solution[s]: VI = IV + II, VI = IX - III
 expression: VI = IV - III
 kind: num_to_op
-setup[s]: flicker, worms, pulse
+setup[s]: flicker, default, worms, pulse
 
 # task : 2
 solution[s]: I + II = III, II = II = II
@@ -34,7 +34,7 @@ kind: number
 solution[s]: XV + V = XX
 expression: XIV - V = XX
 kind: op_to_num
-setup[s]: flicker, worms, pulse
+setup[s]: flicker, default, worms, pulse
 
 # task : 7
 solution[s]: I = I = I, II - I = I
