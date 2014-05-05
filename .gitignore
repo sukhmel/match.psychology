@@ -193,6 +193,8 @@ $RECYCLE.BIN/
 ## Python
 #############
 
+.repoproject/*
+
 # PsychoPy iohub
 .iohpid
 
