@@ -5,11 +5,10 @@ from os              import listdir as walk
 from os.path         import isfile
 from pickle          import dump
 from numpy           import sin, deg2rad, exp
-from copy            import copy, deepcopy
+from copy            import copy
 from numpy.random    import uniform as random
-from random          import sample, shuffle
+from random          import sample
 from psychopy        import visual, event, core, gui
-from psychopy.iohub  import launchHubServer, EventConstants
 from matplotlib.path import Path as mpl_Path
 
 
@@ -17,7 +16,7 @@ def ask_user():
     info = {u'имя': '',
             u'возраст': 20,
             u'пол': [u'муж',
-                    u'жен'],
+                     u'жен'],
             u'курс': 2,
             u'факультет': '',
             u'версия': 0.93}
@@ -51,13 +50,7 @@ if user is None:
 
 debug = False
 
-io = launchHubServer()
-
-display  = io.devices.display
-keyboard = io.devices.keyboard
-mouse    = io.devices.mouse
-
-size = map(lambda x: int(x*1.0), display.getPixelResolution())
+size = [800, 600]
 
 viewScale = map(lambda x: float(x)/min(size), size)
 viewScale.reverse()
@@ -427,7 +420,6 @@ def decompose(array):
     result = []
     for match in array:
         epsilon = min(match.size)
-        delta   = max(match.size)
 
         left = match.verticesPix
         local = {match}
@@ -725,8 +717,6 @@ def test_solution(solution):
 
 
 def compare(expression, solution):
-    ok = True
-    amount = 0
     source = expression.split()
     result = solution.split()
     for index in range(len(source)):
@@ -771,44 +761,41 @@ def execute_task(task, setup=None, styleSet=None):
         help.draw()
         draw(matches, time)
 
-        kb_events = keyboard.getEvents()
+        kb_events = event.getKeys()
 
-        io.clearEvents()
         event.clearEvents()
 
         for evt in kb_events:
-            if evt.type == EventConstants.KEYBOARD_PRESS:
-                if evt.key_id == 27:  # Escape
-                    io.quit()
-                    core.quit()
+            print (evt)
+            # if evt.key_id == 27:  # Escape
+            #     core.quit()
 
-                start = solution == ''
+            # start = solution == ''
 
-                if evt.key.lower() in u"ivxlcdm-+=":
-                    if solution[-1:].isalpha() != evt.key.isalpha():
-                        solution += u" "
-                    solution += evt.key.upper()
+            # if evt.key.lower() in u"ivxlcdm-+=":
+            #     if solution[-1:].isalpha() != evt.key.isalpha():
+            #         solution += u" "
+            #     solution += evt.key.upper()
 
-                if evt.key_id == 13: # Enter
-                    resolved = solution.decode().strip() in task['solution']
-                    if not resolved:
-                        solution = ''
+            # if evt.key_id == 13: # Enter
+            #     resolved = solution.decode().strip() in task['solution']
+            #     if not resolved:
+            #         solution = ''
 
-                if evt.key_id == 35: # End
-                    resolved = True
-                    forced = True
+            # if evt.key_id == 35:
+            #     resolved = True
 
-                if evt.key_id == 8: # Backspace
-                    solution = solution[:-1].strip()
+            # if evt.key_id == 8: # Backspace
+            #     solution = solution[:-1].strip()
 
-                if solution != '' and start:
-                    input_timer.reset()
+            # if solution != '' and start:
+            #     input_timer.reset()
 
-                if (solution == '' and not start) or resolved:
-                    spent -= input_timer.getTime()
+            # if (solution == '' and not start) or resolved:
+            #     spent -= input_timer.getTime()
 
-                if resolved:
-                    spent += clock.getTime()
+            # if resolved:
+            #     spent += clock.getTime()
 
     inform(task['success'])
 
@@ -852,8 +839,6 @@ pulses = { 'grow'   : lambda t, size: global_scale_pulse(pulse_function(t, +1.0)
 flickers = { 'fast' : lambda t: (sin(t*5) + 2) / 3
            , 'slow' : lambda t: (sin(t*2) + 2) / 3 }
 
-io.clearEvents('all')
-
 demo_timeout_start = core.getTime()
 
 
@@ -870,7 +855,6 @@ def inform(what):
         win.flip()
 
     if 'escape' in event.getKeys():
-        io.quit()
         core.quit()
 
     while any(oldMouse.getPressed()) or len(event.getKeys()) != 0:

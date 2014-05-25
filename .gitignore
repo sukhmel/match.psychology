@@ -193,6 +193,8 @@ $RECYCLE.BIN/
 ## Python
 #############
 
+src/.ropeproject/*
+
 # PsychoPy iohub
 .iohpid
 
