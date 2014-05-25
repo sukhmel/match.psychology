@@ -15,16 +15,18 @@ from matplotlib.path import Path as mpl_Path
 
 def ask_user():
     info = {u'имя': '',
-            u'возраст': 18,
+            u'возраст': 20,
             u'пол': [u'муж',
                     u'жен'],
             u'курс': 2,
-            u'версия': 0.92}
+            u'факультет': '',
+            u'версия': 0.93}
     infoDlg = gui.DlgFromDict(dictionary=info,
                               title=u'Введите ваши данные',
                               order=[u'имя',
                                      u'возраст',
                                      u'курс',
+                                     u'факультет',
                                      u'пол',
                                      u'версия'],
                               fixed=[u'версия'])
@@ -739,6 +741,7 @@ def compare(expression, solution):
 def execute_task(task, setup=None, styleSet=None):
     spent = 0
     resolved = False
+    forced = False
     solution = ''
     input_timer = core.Clock()
 
@@ -791,8 +794,9 @@ def execute_task(task, setup=None, styleSet=None):
                     if not resolved:
                         solution = ''
 
-                if evt.key_id == 35:
+                if evt.key_id == 35: # End
                     resolved = True
+                    forced = True
 
                 if evt.key_id == 8: # Backspace
                     solution = solution[:-1].strip()
@@ -807,6 +811,9 @@ def execute_task(task, setup=None, styleSet=None):
                     spent += clock.getTime()
 
     inform(task['success'])
+
+    if forced:
+        solution = "forced: " + solution
 
     result = [''.join([(a.isalnum() and [a] or [" " + a + " "])[0] for a in expression]), solution, spent]
 

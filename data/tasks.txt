@@ -9,7 +9,7 @@ expression: X = VIII - II
 kind: operator
 
 # task : 5
-solution[s]: II = II = II
+solution[s]: II = II = II, I + II = III, II + I = III
 expression: II - II = III
 kind: num_to_op
 setup[s]: flicker, default, worms, pulse
@@ -26,7 +26,7 @@ kind: num_to_op
 setup[s]: flicker, default, worms, pulse
 
 # task : 2
-solution[s]: I + II = III, II = II = II
+solution[s]: I + II = III, II = II = II, II + I = III
 expression: II + II = II
 kind: number
 
