@@ -4,6 +4,7 @@
 from os              import listdir as walk
 from os.path         import isfile
 from pickle          import dump
+from docutils.parsers.rst.directives import encoding
 from numpy           import sin, deg2rad, exp
 from copy            import copy
 from numpy.random    import uniform as random
@@ -50,7 +51,7 @@ if user is None:
 
 debug = False
 
-size = [800, 600]
+size = [1400, 900]
 
 viewScale = map(lambda x: float(x)/min(size), size)
 viewScale.reverse()
@@ -88,9 +89,9 @@ animated = copy(default)
 animated['image'] = imageFiles[-1]
 animated['anim']  = [2.0, .05, .05, .05, .05, .05, .05, .05]
 
-defTask = { 'description': 'Нужно переложить одну спичку.'
-          , 'help': 'I = 1, V = 5, X = 10, L = 50, C = 100, D = 500, M = 1000'
-          , 'success': 'Верно!'
+defTask = { 'description': u'Нужно переложить одну спичку.'
+          , 'help': u'I = 1, V = 5, X = 10, L = 50, C = 100, D = 500, M = 1000'
+          , 'success': u'Верно!'
           , 'amount': 1
           , 'setup': None}
 
@@ -748,6 +749,8 @@ def execute_task(task, setup=None, styleSet=None):
 
     expression = prepare_matches(matches, setup, styleSet, task)
 
+    shift = False
+
     while not resolved:
         time = clock.getTime()
 
@@ -766,36 +769,52 @@ def execute_task(task, setup=None, styleSet=None):
         event.clearEvents()
 
         for evt in kb_events:
-            print (evt)
-            # if evt.key_id == 27:  # Escape
-            #     core.quit()
+            if 'lshift' in kb_events:
+                shift = True
 
-            # start = solution == ''
+            if evt == "escape":
+                core.quit()
 
-            # if evt.key.lower() in u"ivxlcdm-+=":
-            #     if solution[-1:].isalpha() != evt.key.isalpha():
-            #         solution += u" "
-            #     solution += evt.key.upper()
+            start = solution == ''
 
-            # if evt.key_id == 13: # Enter
-            #     resolved = solution.decode().strip() in task['solution']
-            #     if not resolved:
-            #         solution = ''
+            keys = {"i": 'i',
+                    "v": 'v',
+                    "x": 'x',
+                    "l": 'l',
+                    "c": 'c',
+                    "d": "m",
+                    "minus": '-',
+                    "equal": '='}
+            if evt in keys.keys():
+                char = keys[evt]
+                if shift:
+                    if char == '=':
+                        char = '+'
+                    shift = False
+                if solution[-1:].isalpha() != char.isalpha():
+                    solution += " "
+                solution += char.upper()
 
-            # if evt.key_id == 35:
-            #     resolved = True
+            if evt == "return":
+                resolved = solution.decode().strip() in task['solution']
+                if not resolved:
+                    solution = ''
 
-            # if evt.key_id == 8: # Backspace
-            #     solution = solution[:-1].strip()
+            if evt == "end":
+                 resolved = True
+                 forced = True
 
-            # if solution != '' and start:
-            #     input_timer.reset()
+            if evt == "backspace":
+                solution = solution[:-1].strip()
 
-            # if (solution == '' and not start) or resolved:
-            #     spent -= input_timer.getTime()
+            if solution != '' and start:
+                input_timer.reset()
 
-            # if resolved:
-            #     spent += clock.getTime()
+            if (solution == '' and not start) or resolved:
+                spent -= input_timer.getTime()
+
+            if resolved:
+                spent += clock.getTime()
 
     inform(task['success'])
 
@@ -843,7 +862,7 @@ demo_timeout_start = core.getTime()
 
 
 def inform(what):
-    lines = (what + '#Для продолжения нажмите любую клавишу.').split('#')
+    lines = (what + u'#Для продолжения нажмите любую клавишу.').split('#')
     text = []
     length = len(lines)
     for index in range(length):
@@ -889,13 +908,13 @@ if __name__ == '__main__':
         temp = (tests[i], setup)
         tasks.append(temp)
 
-    inform('Ваша задача — как можно быстрее решить головоломку, мысленно переставив \
+    inform(u'Ваша задача — как можно быстрее решить головоломку, мысленно переставив \
 одну из спичек, образующие выражение, таким образом, чтобы получилось верное равенство.#\
 После того, как вы нашли решение, введите его с клавиатуры и нажмите [Enter].#Если решение \
 неверно, введённый текст будет стёрт и ввод решения следует начать заново.#В задачах используются только \
 операторы сложения и вычитания.')
 
-    inform('Пропустить текущее задание нельзя.#[Esc] прекращает эксперимент в любой момент.')
+    inform(u'Пропустить текущее задание нельзя.#[Esc] прекращает эксперимент в любой момент.')
 
     for task, setup in tasks:
         result.append(execute_task(task, setups[setup], styles) + [setup])
